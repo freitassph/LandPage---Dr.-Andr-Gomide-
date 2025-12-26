@@ -7,10 +7,8 @@ import { Clinic } from './components/sections/Clinic';
 import { Testimonials } from './components/sections/Testimonials';
 import { FAQ } from './components/sections/FAQ';
 import { Footer } from './components/layout/Footer';
-import { Preloader } from './components/ui/Preloader';
 
 const App: React.FC = () => {
-  const [loading, setLoading] = useState(true);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
@@ -27,9 +25,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      {loading && <Preloader onComplete={() => setLoading(false)} />}
-      
-      <div className={`flex flex-col min-h-screen bg-navy-950 transition-opacity duration-1000 ${loading ? 'opacity-0' : 'opacity-100'}`}>
+      <div className="flex flex-col min-h-screen bg-navy-950">
         <Header />
         <main className="flex-grow">
           <div id="hero"><Hero /></div>
