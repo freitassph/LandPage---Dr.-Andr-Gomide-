@@ -62,22 +62,41 @@ export const Mentorship: React.FC = () => {
             </FadeIn>
           </div>
 
-          <div className="w-full lg:w-1/2 relative hidden lg:block">
+          <div className="w-full lg:w-1/2 relative hidden lg:block px-4">
              <FadeIn direction="left" delay={200}>
-               <div className="relative group perspective-1000">
-                 {/* Abstract representation of a certificate/book */}
-                 <div className="absolute top-0 right-0 w-full h-full border border-gold-400/20 transform translate-x-4 translate-y-4 z-0 transition-transform duration-700 group-hover:translate-x-6 group-hover:translate-y-6"></div>
-                 <div className="relative z-10 bg-navy-800 border border-white/10 p-10 shadow-2xl transition-transform duration-700 group-hover:-translate-y-2">
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold-400 to-transparent"></div>
-                    <i className="fa-solid fa-quote-left text-4xl text-gold-400/20 mb-6"></i>
-                    <p className="font-serif text-2xl text-slate-200 leading-relaxed mb-6">
-                      "Eu encaminhava 60% dos meus casos. Hoje, resolvo 95% no meu próprio consultório com <span className="text-gold-300">segurança absoluta</span> e cobrando o triplo."
+               <div className="relative group w-full max-w-md mx-auto">
+                 
+                 {/* 1. Ambient Glow - Adds Depth */}
+                 <div className="absolute -inset-0.5 bg-gradient-to-br from-gold-500/30 to-navy-900/50 rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition duration-1000"></div>
+                 
+                 {/* 2. Main Card Body */}
+                 <div className="relative z-10 bg-navy-900/90 backdrop-blur-xl border border-white/10 p-8 md:p-10 shadow-2xl rounded-2xl overflow-hidden transition-transform duration-500 group-hover:-translate-y-1">
+                    
+                    {/* Decorative Watermark Quote */}
+                    <div className="absolute -top-4 -right-4 text-[10rem] leading-none font-serif text-gold-400/[0.03] select-none pointer-events-none font-italic">”</div>
+                    
+                    {/* Stars */}
+                    <div className="flex gap-1 mb-6">
+                        {[1,2,3,4,5].map(i => <i key={i} className="fa-solid fa-star text-xs text-gold-400 drop-shadow-[0_0_5px_rgba(212,175,55,0.5)]"></i>)}
+                    </div>
+
+                    <p className="font-serif text-xl md:text-2xl text-slate-200 leading-relaxed mb-8 relative z-10">
+                      "Eu encaminhava <span className="line-through text-slate-600 decoration-gold-400/30 decoration-1 text-lg">60%</span> dos meus casos. Hoje, resolvo <strong className="text-white font-medium border-b-2 border-gold-400/60 pb-0.5">95%</strong> no meu próprio consultório com segurança absoluta e cobrando o triplo."
                     </p>
-                    <div className="flex items-center gap-4 border-t border-white/5 pt-6">
-                      <div className="w-12 h-12 rounded-full bg-gold-400 flex items-center justify-center text-navy-900 font-bold text-lg shadow-[0_0_20px_rgba(212,175,55,0.3)]">R</div>
+                    
+                    {/* Author Section */}
+                    <div className="flex items-center gap-4 border-t border-white/5 pt-6 mt-2">
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-gold-300 to-gold-600 p-[1px] shadow-[0_0_15px_rgba(212,175,55,0.3)]">
+                          <div className="w-full h-full rounded-full bg-navy-900 flex items-center justify-center">
+                             <span className="text-gold-300 font-bold text-lg font-serif">R</span>
+                          </div>
+                      </div>
                       <div>
-                        <p className="text-white font-bold">Dr. Rafael M.</p>
-                        <p className="text-gold-400/70 text-xs uppercase tracking-wider">Aluno Turma 3</p>
+                        <p className="text-slate-50 font-bold text-sm tracking-wide">Dr. Rafael M.</p>
+                        <div className="flex items-center gap-2 mt-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                            <p className="text-slate-400 text-[10px] uppercase tracking-widest">Aluno Turma 3</p>
+                        </div>
                       </div>
                     </div>
                  </div>
