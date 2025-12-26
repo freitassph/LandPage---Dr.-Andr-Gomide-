@@ -1,0 +1,91 @@
+import React from 'react';
+import { FadeIn } from '../ui/FadeIn';
+
+export const Clinic: React.FC = () => {
+  const technologies = [
+    { icon: "fa-microscope", title: "Microscopia Zeiss", desc: "Ampliação de até 20x para tratar canais invisíveis a olho nu." },
+    { icon: "fa-print", title: "Tomografia 3D", desc: "Planejamento digital para máxima segurança e precisão." },
+    { icon: "fa-wand-magic-sparkles", title: "Ultrassom Piezo", desc: "Limpeza profunda com preservação da estrutura dental." }
+  ];
+
+  return (
+    <section className="py-20 md:py-32 bg-navy-900 relative overflow-hidden">
+      {/* Background Ambience - Cyan for Clinical/Tech */}
+      <div className="absolute right-0 top-0 w-2/3 h-full bg-gradient-to-l from-cyan-900/10 to-transparent pointer-events-none"></div>
+      
+      {/* Decorative Circle */}
+      <div className="absolute right-[-10%] top-[20%] w-[300px] h-[300px] md:w-[600px] md:h-[600px] rounded-full border border-cyan-500/5 opacity-50 pointer-events-none"></div>
+
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row-reverse gap-16 items-center">
+          
+          <div className="w-full lg:w-1/2">
+            <FadeIn>
+              <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-cyan-400/30 rounded-full bg-cyan-400/5 backdrop-blur-md">
+                <i className="fa-solid fa-tooth text-cyan-400 text-[10px]"></i>
+                <span className="text-cyan-300 text-[10px] font-bold tracking-[0.2em] uppercase">Clínica Particular</span>
+              </div>
+
+              <h2 className="font-serif text-5xl md:text-6xl text-slate-50 mb-6 leading-tight">
+                Tecnologia a favor do <br/><span className="italic text-cyan-400 font-light">Seu Conforto</span>
+              </h2>
+              
+              <p className="text-slate-300 text-lg font-light leading-relaxed mb-8 border-l-2 border-cyan-400/30 pl-6">
+                Esqueça o medo do tratamento de canal. Utilizamos tecnologia microscópica para procedimentos <strong>minimamente invasivos</strong>, mais rápidos e, na maioria dos casos, em <strong className="text-white">sessão única</strong>.
+              </p>
+              
+              <div className="space-y-4 mb-10">
+                {technologies.map((tech, idx) => (
+                  <div key={idx} className="flex gap-5 group p-4 rounded-lg hover:bg-white/5 transition-colors duration-300">
+                    <div className="w-12 h-12 flex-shrink-0 rounded-xl bg-navy-800 border border-white/10 flex items-center justify-center group-hover:border-cyan-400/50 group-hover:text-cyan-400 transition-all shadow-lg">
+                      <i className={`fa-solid ${tech.icon} text-slate-400 text-xl group-hover:text-cyan-400 transition-colors`}></i>
+                    </div>
+                    <div>
+                      <h4 className="text-white font-serif text-lg group-hover:text-cyan-200 transition-colors">{tech.title}</h4>
+                      <p className="text-slate-400 text-sm font-light leading-snug">{tech.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <a 
+                href="https://wa.me/5562984459505?text=Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-4 px-8 py-4 border border-cyan-400/30 text-cyan-300 hover:bg-cyan-400/10 font-bold uppercase tracking-widest text-sm transition-all duration-300 rounded-sm hover:shadow-lg hover:shadow-cyan-400/10 w-full md:w-auto justify-center"
+              >
+                Agendar Avaliação
+                <i className="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+              </a>
+            </FadeIn>
+          </div>
+
+          {/* Visual Focus: Precision */}
+          <div className="w-full lg:w-1/2 relative h-[350px] md:h-[500px] rounded-lg overflow-hidden group border border-white/5 shadow-2xl">
+             <FadeIn direction="right" delay={200} className="h-full">
+                {/* Image Container */}
+                <div className="absolute inset-0 bg-navy-950">
+                    <img 
+                        src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80" 
+                        alt="Microscópio Operatório Odontológico em uso clínico"
+                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-[2s] ease-out" 
+                    />
+                </div>
+                
+                {/* Overlays - Adjusted for visibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-cyan-900/10 mix-blend-overlay"></div>
+                
+                {/* Floating Content */}
+                <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 p-6 md:p-8 bg-navy-900/90 backdrop-blur-xl border border-white/10 border-l-4 border-l-cyan-400 shadow-2xl">
+                  <p className="font-serif text-xl md:text-2xl text-white italic mb-2">"A gente só trata o que vê."</p>
+                  <p className="text-[10px] text-cyan-300 uppercase tracking-widest font-bold">Filosofia da Microscopia</p>
+                </div>
+            </FadeIn>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
