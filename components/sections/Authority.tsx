@@ -3,23 +3,24 @@ import { FadeIn } from '../ui/FadeIn';
 
 export const Authority: React.FC = () => {
   return (
-    <section className="py-20 md:py-32 relative overflow-hidden">
+    <section className="py-20 md:py-32 relative overflow-hidden flex items-center">
       {/* Background Gradient to lift darkness */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950"></div>
       
       {/* Decorative Golden Line */}
       <div className="absolute right-0 top-1/4 w-1/2 h-px bg-gradient-to-l from-gold-400/30 to-transparent"></div>
       
-      {/* Background Big Text - Subtler and Responsive */}
-      <div className="absolute left-4 bottom-0 text-[8rem] md:text-[18rem] lg:text-[22rem] font-serif leading-none text-white/[0.02] select-none pointer-events-none z-0">
-        PhD
+      {/* Background Big Text - Redesigned: Moved to bottom, Sharper */}
+      <div className="absolute bottom-[-10%] md:bottom-[-15%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-none z-0 select-none overflow-hidden flex justify-center items-center">
+        <span className="font-serif text-[35vw] md:text-[25vw] leading-none text-white/[0.03] font-bold tracking-tighter whitespace-nowrap">
+          PhD
+        </span>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
           
           {/* Image Side - Lighter presentation */}
-          {/* Removido order-2 lg:order-1 para manter o fluxo natural (Imagem primeiro) */}
           <div className="w-full lg:w-1/2 relative lg:pr-16">
             <FadeIn direction="right" duration={1200}>
               <div className="relative z-10 mx-auto max-w-sm md:max-w-md">
@@ -48,7 +49,6 @@ export const Authority: React.FC = () => {
           </div>
 
           {/* Content Side */}
-          {/* Removido order-1 lg:order-2 para manter o fluxo natural (Texto depois) */}
           <div className="w-full lg:w-1/2 lg:pl-10">
              <FadeIn delay={200}>
               <div className="flex items-center gap-4 mb-6 md:mb-8">

@@ -1,8 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { FadeIn } from '../ui/FadeIn';
 
+interface SpotlightCardProps {
+  children: React.ReactNode;
+  href: string;
+  className?: string;
+  spotlightColor?: string;
+}
+
 // Componente auxiliar para Card com Spotlight
-const SpotlightCard = ({ children, href, className = "", spotlightColor = "rgba(212, 175, 55, 0.15)" }) => {
+const SpotlightCard: React.FC<SpotlightCardProps> = ({ children, href, className = "", spotlightColor = "rgba(212, 175, 55, 0.15)" }) => {
   const divRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
