@@ -40,7 +40,7 @@ export const Header: React.FC = () => {
       if (element) {
         const headerOffset = 80; // Ajuste para compensar o header fixo
         const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
         window.scrollTo({ top: offsetPosition, behavior: "smooth" });
       }
     }, 100);
@@ -57,9 +57,9 @@ export const Header: React.FC = () => {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b 
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b 
         ${scrolled && !isMobileMenuOpen 
-          ? 'py-3 bg-navy-950/95 backdrop-blur-xl border-navy-800 shadow-xl' 
+          ? 'py-3 bg-navy-950/80 backdrop-blur-md border-white/5 shadow-2xl supports-[backdrop-filter]:bg-navy-950/60' 
           : 'py-4 md:py-6 bg-transparent border-transparent'
         }`}
       >
@@ -68,16 +68,16 @@ export const Header: React.FC = () => {
           {/* Logo - Otimizado para Mobile */}
           <a href="#" onClick={handleLogoClick} className="flex items-center gap-3 group cursor-pointer flex-shrink-0 z-50 relative">
             <div className={`
-              border border-gold-400/30 flex items-center justify-center text-gold-300 font-serif italic transition-all duration-300 bg-navy-900/50 backdrop-blur-sm rounded-sm
-              ${scrolled ? 'w-10 h-10 text-xl' : 'w-10 h-10 md:w-12 md:h-12 text-xl md:text-2xl'}
+              border border-gold-400/30 flex items-center justify-center text-gold-300 font-serif italic transition-all duration-500 bg-navy-900/50 backdrop-blur-sm rounded-sm
+              ${scrolled ? 'w-10 h-10 text-xl shadow-lg shadow-gold-900/10' : 'w-10 h-10 md:w-12 md:h-12 text-xl md:text-2xl'}
             `}>
               G
             </div>
             <div className="flex flex-col justify-center">
-              <span className={`font-serif leading-none tracking-wide text-slate-50 transition-all duration-300 ${scrolled ? 'text-base' : 'text-base md:text-lg'}`}>
+              <span className={`font-serif leading-none tracking-wide text-slate-50 transition-all duration-500 ${scrolled ? 'text-base' : 'text-base md:text-lg'}`}>
                 Dr. André Gomide
               </span>
-              <span className="text-slate-500 text-[0.6rem] md:text-[0.65rem] uppercase tracking-[0.2em] md:tracking-[0.3em] leading-none mt-1">
+              <span className={`text-slate-500 uppercase tracking-[0.2em] md:tracking-[0.3em] leading-none mt-1 transition-all duration-500 ${scrolled ? 'text-[0.5rem] md:text-[0.55rem]' : 'text-[0.6rem] md:text-[0.65rem]'}`}>
                 PhD Endodontia
               </span>
             </div>
@@ -104,7 +104,11 @@ export const Header: React.FC = () => {
               href={clinicWhatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 px-5 py-2 bg-white/5 hover:bg-gold-400 border border-white/10 hover:border-gold-400 text-gold-300 hover:text-navy-900 transition-all duration-300 text-[10px] md:text-xs font-bold uppercase tracking-widest rounded-sm whitespace-nowrap active:scale-95"
+              className={`hidden sm:flex items-center gap-2 px-6 py-2 border transition-all duration-300 text-[10px] md:text-xs font-bold uppercase tracking-widest rounded-sm whitespace-nowrap active:scale-95
+              ${scrolled 
+                ? 'bg-gold-400 text-navy-950 border-gold-400 hover:bg-white hover:border-white' 
+                : 'bg-white/5 text-gold-300 border-white/10 hover:border-gold-400 hover:bg-gold-400 hover:text-navy-900'
+              }`}
             >
               <span>Agendar</span>
             </a>
