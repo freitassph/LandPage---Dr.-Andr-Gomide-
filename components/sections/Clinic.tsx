@@ -66,7 +66,7 @@ export const Clinic: React.FC = () => {
                 {/* Image Container */}
                 <div className="absolute inset-0 bg-navy-950">
                     <img 
-                        src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80" 
+                        src="https://i.ibb.co/Q375YJDH/Gemini-Generated-Image-d57ipxd57ipxd57i.png" 
                         alt="Microscópio Operatório Odontológico em uso clínico"
                         className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-[2s] ease-out" 
                     />
