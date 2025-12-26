@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { FadeIn } from '../ui/FadeIn';
 
 const testimonials = [
@@ -25,6 +25,40 @@ const testimonials = [
   }
 ];
 
+// Minimal Spotlight Wrapper for Testimonials
+const TestimonialCard = ({ children, className = "" }) => {
+  const divRef = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!divRef.current) return;
+    const rect = divRef.current.getBoundingClientRect();
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  return (
+    <div 
+      ref={divRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setOpacity(1)}
+      onMouseLeave={() => setOpacity(0)}
+      className={`relative h-full bg-white/[0.02] backdrop-blur-md border border-white/5 p-8 md:p-10 transition-all duration-500 hover:bg-white/[0.04] hover:-translate-y-2 group rounded-sm shadow-lg overflow-hidden ${className}`}
+    >
+      <div 
+        className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 z-0"
+        style={{
+          opacity,
+          background: `radial-gradient(400px circle at ${position.x}px ${position.y}px, rgba(255,255,255,0.05), transparent 40%)`
+        }}
+      />
+      <div className="relative z-10 flex flex-col h-full">
+        {children}
+      </div>
+    </div>
+  );
+};
+
 export const Testimonials: React.FC = () => {
   return (
     <section className="py-20 md:py-32 bg-navy-950 relative overflow-hidden">
@@ -49,8 +83,7 @@ export const Testimonials: React.FC = () => {
             
             return (
               <FadeIn key={idx} delay={idx * 150} direction="up" className="h-full">
-                <div className={`h-full bg-white/[0.02] backdrop-blur-md border border-white/5 p-8 md:p-10 transition-all duration-500 hover:bg-white/[0.04] hover:-translate-y-2 group rounded-sm shadow-lg flex flex-col ${borderColor}`}>
-                  
+                <TestimonialCard className={borderColor}>
                   {/* Header Badge & Stars */}
                   <div className="flex justify-between items-start mb-8">
                     <span className={`text-[10px] font-bold tracking-widest px-3 py-1 rounded-full border ${badgeBg}`}>
@@ -81,7 +114,7 @@ export const Testimonials: React.FC = () => {
                       <p className="text-slate-500 text-[10px] uppercase tracking-wider">{item.role}</p>
                     </div>
                   </div>
-                </div>
+                </TestimonialCard>
               </FadeIn>
             );
           })}

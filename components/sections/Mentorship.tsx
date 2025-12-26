@@ -37,13 +37,13 @@ export const Mentorship: React.FC = () => {
                 A insegurança em casos complexos trava o crescimento do seu consultório. O <strong className="text-white">Método Endo 360</strong> transforma sua prática clínica através de protocolos previsíveis e cientificamente embasados.
               </p>
               
-              <div className="bg-navy-900/50 border border-white/5 p-6 md:p-8 rounded-xl backdrop-blur-sm mb-10 hover:border-gold-400/20 transition-colors duration-500">
+              <div className="bg-navy-900/50 border border-white/5 p-6 md:p-8 rounded-xl backdrop-blur-sm mb-10 hover:border-gold-400/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold-900/10">
                 <h4 className="text-white font-serif text-xl mb-6">O que você vai dominar:</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
                   {syllabus.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-3 group">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gold-400 group-hover:scale-150 transition-transform"></div>
-                      <span className="text-slate-400 font-sans text-sm group-hover:text-gold-100 transition-colors">{item}</span>
+                    <div key={idx} className="flex items-center gap-3 group p-2 -ml-2 rounded-lg hover:bg-white/5 transition-all duration-300 cursor-default">
+                      <div className="w-1.5 h-1.5 rounded-full bg-gold-400 group-hover:scale-150 group-hover:shadow-[0_0_10px_rgba(212,175,55,0.8)] transition-all duration-300"></div>
+                      <span className="text-slate-400 font-sans text-sm group-hover:text-gold-100 group-hover:translate-x-1 transition-all duration-300">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -53,26 +53,28 @@ export const Mentorship: React.FC = () => {
                 href="https://wa.me/5562985551350?text=Tenho%20interesse%20na%20Mentoria%20Endo%20360" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-400 hover:to-gold-300 text-navy-950 font-bold uppercase tracking-widest text-sm transition-all duration-300 rounded-sm shadow-lg shadow-gold-900/20 hover:shadow-gold-500/20 transform hover:-translate-y-1 w-full md:w-auto justify-center"
+                className="relative overflow-hidden group inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-400 hover:to-gold-300 text-navy-950 font-bold uppercase tracking-widest text-sm transition-all duration-300 rounded-sm shadow-lg shadow-gold-900/20 hover:shadow-gold-500/20 transform hover:-translate-y-1 w-full md:w-auto justify-center"
               >
-                Aplicar para a Turma
-                <i className="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] skew-x-12"></div>
+                <span className="relative z-10">Aplicar para a Turma</span>
+                <i className="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform relative z-10"></i>
               </a>
             </FadeIn>
           </div>
 
           <div className="w-full lg:w-1/2 relative hidden lg:block">
              <FadeIn direction="left" delay={200}>
-               <div className="relative">
+               <div className="relative group perspective-1000">
                  {/* Abstract representation of a certificate/book */}
-                 <div className="absolute top-0 right-0 w-full h-full border border-gold-400/20 transform translate-x-4 translate-y-4 z-0"></div>
-                 <div className="relative z-10 bg-navy-800 border border-white/10 p-10 shadow-2xl">
+                 <div className="absolute top-0 right-0 w-full h-full border border-gold-400/20 transform translate-x-4 translate-y-4 z-0 transition-transform duration-700 group-hover:translate-x-6 group-hover:translate-y-6"></div>
+                 <div className="relative z-10 bg-navy-800 border border-white/10 p-10 shadow-2xl transition-transform duration-700 group-hover:-translate-y-2">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold-400 to-transparent"></div>
                     <i className="fa-solid fa-quote-left text-4xl text-gold-400/20 mb-6"></i>
                     <p className="font-serif text-2xl text-slate-200 leading-relaxed mb-6">
                       "Eu encaminhava 60% dos meus casos. Hoje, resolvo 95% no meu próprio consultório com <span className="text-gold-300">segurança absoluta</span> e cobrando o triplo."
                     </p>
                     <div className="flex items-center gap-4 border-t border-white/5 pt-6">
-                      <div className="w-12 h-12 rounded-full bg-gold-400 flex items-center justify-center text-navy-900 font-bold text-lg">R</div>
+                      <div className="w-12 h-12 rounded-full bg-gold-400 flex items-center justify-center text-navy-900 font-bold text-lg shadow-[0_0_20px_rgba(212,175,55,0.3)]">R</div>
                       <div>
                         <p className="text-white font-bold">Dr. Rafael M.</p>
                         <p className="text-gold-400/70 text-xs uppercase tracking-wider">Aluno Turma 3</p>

@@ -1,6 +1,52 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { FadeIn } from '../ui/FadeIn';
 
+// Componente auxiliar para Card com Spotlight
+const SpotlightCard = ({ children, href, className = "", spotlightColor = "rgba(212, 175, 55, 0.15)" }) => {
+  const divRef = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!divRef.current) return;
+    const rect = divRef.current.getBoundingClientRect();
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  const handleMouseEnter = () => setOpacity(1);
+  const handleMouseLeave = () => setOpacity(0);
+
+  return (
+    <div 
+      ref={divRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`relative h-full group rounded-xl md:rounded-2xl overflow-hidden ${className}`}
+    >
+      {/* Border Spotlight */}
+      <div 
+        className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100 z-10"
+        style={{
+          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 40%)`
+        }}
+      />
+      
+      {/* Content Wrapper */}
+      <a href={href} target="_blank" rel="noopener noreferrer" className="block relative h-full bg-navy-900 rounded-xl md:rounded-2xl z-20 overflow-hidden h-full">
+         {/* Inner Content Spotlight (Faint) */}
+         <div 
+          className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 mix-blend-screen"
+          style={{
+            background: `radial-gradient(800px circle at ${position.x}px ${position.y}px, rgba(255,255,255,0.06), transparent 40%)`
+          }}
+        />
+        {children}
+      </a>
+    </div>
+  );
+};
+
 export const Hero: React.FC = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const requestRef = useRef<number | undefined>(undefined);
@@ -87,23 +133,22 @@ export const Hero: React.FC = () => {
           </FadeIn>
         </div>
 
-        {/* The Choice Cards - Premium Hover Effects */}
+        {/* The Choice Cards - Premium Hover Effects with Spotlight */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 w-full max-w-5xl">
           
           {/* Card 1: Dentist */}
           <FadeIn delay={600} direction="up" className="h-full">
-            <a href={studentWhatsapp} target="_blank" rel="noopener noreferrer" className="block group relative h-full active:scale-[0.98] transition-transform">
-              {/* Card Container */}
-              <div className="absolute inset-0 bg-glass-gradient backdrop-blur-xl rounded-xl md:rounded-2xl border border-white/10 group-hover:border-gold-300/40 transition-all duration-700 ease-out-expo shadow-2xl shadow-black/40 group-hover:shadow-gold-900/10 group-hover:-translate-y-2"></div>
+            <SpotlightCard href={studentWhatsapp} spotlightColor="rgba(212, 175, 55, 0.4)">
+              {/* Card Container Internal Styles */}
+              <div className="absolute inset-0 bg-glass-gradient backdrop-blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out-expo"></div>
               
-              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out-expo rounded-xl md:rounded-2xl"></div>
-              
-              <div className="relative p-6 sm:p-8 md:p-12 h-full flex flex-col items-start">
-                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-navy-800 to-navy-900 border border-white/10 flex items-center justify-center mb-6 md:mb-8 group-hover:scale-110 group-hover:rotate-3 group-hover:border-gold-400/50 transition-all duration-700 ease-out-expo shadow-lg">
+              <div className="relative p-6 sm:p-8 md:p-12 h-full flex flex-col items-start border border-white/10 rounded-xl md:rounded-2xl transition-colors duration-500 group-hover:border-transparent">
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-navy-800 to-navy-900 border border-white/10 flex items-center justify-center mb-6 md:mb-8 group-hover:scale-110 group-hover:rotate-3 group-hover:border-gold-400/50 transition-all duration-700 ease-out-expo shadow-lg z-20">
                   <i className="fa-solid fa-graduation-cap text-lg md:text-2xl text-gold-300"></i>
                 </div>
 
-                <div className="space-y-3 md:space-y-4 mb-8 md:mb-10">
+                <div className="space-y-3 md:space-y-4 mb-8 md:mb-10 z-20">
                   <h3 className="font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] text-gold-300 uppercase">Área de Ensino</h3>
                   <h2 className="font-serif text-3xl md:text-4xl text-white group-hover:text-gold-200 transition-colors duration-500">Sou Dentista</h2>
                   <p className="text-slate-300 font-light text-sm md:text-base leading-relaxed group-hover:text-white transition-colors duration-500">
@@ -111,28 +156,27 @@ export const Hero: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="mt-auto flex items-center gap-3 text-gold-200 text-xs md:text-sm font-bold tracking-widest uppercase group-hover:gap-5 transition-all duration-500 ease-out-expo border-b border-transparent group-hover:border-gold-300/50 pb-1">
+                <div className="mt-auto flex items-center gap-3 text-gold-200 text-xs md:text-sm font-bold tracking-widest uppercase group-hover:gap-5 transition-all duration-500 ease-out-expo border-b border-transparent group-hover:border-gold-300/50 pb-1 z-20">
                   <span>Acessar Portal</span>
                   <i className="fa-solid fa-arrow-right text-[10px] md:text-xs"></i>
                 </div>
               </div>
-            </a>
+            </SpotlightCard>
           </FadeIn>
 
           {/* Card 2: Patient */}
           <FadeIn delay={700} direction="up" className="h-full">
-            <a href={clinicWhatsapp} target="_blank" rel="noopener noreferrer" className="block group relative h-full active:scale-[0.98] transition-transform">
-              {/* Card Container */}
-              <div className="absolute inset-0 bg-glass-gradient backdrop-blur-xl rounded-xl md:rounded-2xl border border-white/10 group-hover:border-cyan-400/30 transition-all duration-700 ease-out-expo shadow-2xl shadow-black/40 group-hover:shadow-cyan-900/10 group-hover:-translate-y-2"></div>
-              
-              <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out-expo rounded-xl md:rounded-2xl"></div>
+            <SpotlightCard href={clinicWhatsapp} spotlightColor="rgba(34, 211, 238, 0.4)">
+              {/* Card Container Internal Styles */}
+              <div className="absolute inset-0 bg-glass-gradient backdrop-blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out-expo"></div>
 
-              <div className="relative p-6 sm:p-8 md:p-12 h-full flex flex-col items-start">
-                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-navy-800 to-navy-900 border border-white/10 flex items-center justify-center mb-6 md:mb-8 group-hover:scale-110 group-hover:-rotate-3 group-hover:border-cyan-400/50 transition-all duration-700 ease-out-expo shadow-lg">
+              <div className="relative p-6 sm:p-8 md:p-12 h-full flex flex-col items-start border border-white/10 rounded-xl md:rounded-2xl transition-colors duration-500 group-hover:border-transparent">
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-navy-800 to-navy-900 border border-white/10 flex items-center justify-center mb-6 md:mb-8 group-hover:scale-110 group-hover:-rotate-3 group-hover:border-cyan-400/50 transition-all duration-700 ease-out-expo shadow-lg z-20">
                   <i className="fa-regular fa-face-smile text-lg md:text-2xl text-cyan-200"></i>
                 </div>
 
-                <div className="space-y-3 md:space-y-4 mb-8 md:mb-10">
+                <div className="space-y-3 md:space-y-4 mb-8 md:mb-10 z-20">
                   <h3 className="font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] text-cyan-200 uppercase">Clínica Particular</h3>
                   <h2 className="font-serif text-3xl md:text-4xl text-white group-hover:text-cyan-100 transition-colors duration-500">Sou Paciente</h2>
                   <p className="text-slate-300 font-light text-sm md:text-base leading-relaxed group-hover:text-white transition-colors duration-500">
@@ -140,12 +184,12 @@ export const Hero: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="mt-auto flex items-center gap-3 text-cyan-200 text-xs md:text-sm font-bold tracking-widest uppercase group-hover:gap-5 transition-all duration-500 ease-out-expo border-b border-transparent group-hover:border-cyan-300/50 pb-1">
+                <div className="mt-auto flex items-center gap-3 text-cyan-200 text-xs md:text-sm font-bold tracking-widest uppercase group-hover:gap-5 transition-all duration-500 ease-out-expo border-b border-transparent group-hover:border-cyan-300/50 pb-1 z-20">
                   <span>Agendar Consulta</span>
                   <i className="fa-solid fa-arrow-right text-[10px] md:text-xs"></i>
                 </div>
               </div>
-            </a>
+            </SpotlightCard>
           </FadeIn>
 
         </div>

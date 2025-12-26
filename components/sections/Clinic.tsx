@@ -36,13 +36,13 @@ export const Clinic: React.FC = () => {
               
               <div className="space-y-4 mb-10">
                 {technologies.map((tech, idx) => (
-                  <div key={idx} className="flex gap-5 group p-4 rounded-lg hover:bg-white/5 transition-colors duration-300">
-                    <div className="w-12 h-12 flex-shrink-0 rounded-xl bg-navy-800 border border-white/10 flex items-center justify-center group-hover:border-cyan-400/50 group-hover:text-cyan-400 transition-all shadow-lg">
+                  <div key={idx} className="flex gap-5 group p-4 rounded-lg hover:bg-white/5 transition-all duration-500 hover:translate-x-2 border border-transparent hover:border-white/5">
+                    <div className="w-12 h-12 flex-shrink-0 rounded-xl bg-navy-800 border border-white/10 flex items-center justify-center group-hover:border-cyan-400/50 group-hover:text-cyan-400 transition-all shadow-lg group-hover:shadow-[0_0_15px_rgba(34,211,238,0.2)]">
                       <i className={`fa-solid ${tech.icon} text-slate-400 text-xl group-hover:text-cyan-400 transition-colors`}></i>
                     </div>
                     <div>
                       <h4 className="text-white font-serif text-lg group-hover:text-cyan-200 transition-colors">{tech.title}</h4>
-                      <p className="text-slate-400 text-sm font-light leading-snug">{tech.desc}</p>
+                      <p className="text-slate-400 text-sm font-light leading-snug group-hover:text-slate-300 transition-colors">{tech.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -52,10 +52,11 @@ export const Clinic: React.FC = () => {
                 href="https://wa.me/5562984459505?text=Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-4 px-8 py-4 border border-cyan-400/30 text-cyan-300 hover:bg-cyan-400/10 font-bold uppercase tracking-widest text-sm transition-all duration-300 rounded-sm hover:shadow-lg hover:shadow-cyan-400/10 w-full md:w-auto justify-center active:scale-[0.98]"
+                className="relative overflow-hidden group inline-flex items-center gap-4 px-8 py-4 border border-cyan-400/30 text-cyan-300 hover:bg-cyan-400/10 font-bold uppercase tracking-widest text-sm transition-all duration-300 rounded-sm hover:shadow-lg hover:shadow-cyan-400/10 w-full md:w-auto justify-center active:scale-[0.98]"
               >
-                Agendar Avaliação
-                <i className="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] skew-x-12"></div>
+                <span className="relative z-10">Agendar Avaliação</span>
+                <i className="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform relative z-10"></i>
               </a>
             </FadeIn>
           </div>
@@ -78,7 +79,7 @@ export const Clinic: React.FC = () => {
                 <div className="absolute inset-0 bg-cyan-900/10 mix-blend-overlay"></div>
                 
                 {/* Floating Content */}
-                <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 p-6 md:p-8 bg-navy-900/90 backdrop-blur-xl border border-white/10 border-l-4 border-l-cyan-400 shadow-2xl">
+                <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 p-6 md:p-8 bg-navy-900/90 backdrop-blur-xl border border-white/10 border-l-4 border-l-cyan-400 shadow-2xl transition-transform duration-500 group-hover:-translate-y-2">
                   <p className="font-serif text-lg md:text-2xl text-white italic mb-2">"A gente só trata o que vê."</p>
                   <p className="text-[10px] text-cyan-300 uppercase tracking-widest font-bold">Filosofia da Microscopia</p>
                 </div>

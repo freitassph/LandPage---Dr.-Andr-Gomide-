@@ -19,7 +19,8 @@ export const Authority: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
           
           {/* Image Side - Lighter presentation */}
-          <div className="w-full lg:w-1/2 relative lg:pr-16 order-2 lg:order-1">
+          {/* Removido order-2 lg:order-1 para manter o fluxo natural (Imagem primeiro) */}
+          <div className="w-full lg:w-1/2 relative lg:pr-16">
             <FadeIn direction="right" duration={1200}>
               <div className="relative z-10 mx-auto max-w-sm md:max-w-md">
                 {/* Frame */}
@@ -47,7 +48,8 @@ export const Authority: React.FC = () => {
           </div>
 
           {/* Content Side */}
-          <div className="w-full lg:w-1/2 lg:pl-10 order-1 lg:order-2">
+          {/* Removido order-1 lg:order-2 para manter o fluxo natural (Texto depois) */}
+          <div className="w-full lg:w-1/2 lg:pl-10">
              <FadeIn delay={200}>
               <div className="flex items-center gap-4 mb-6 md:mb-8">
                 <span className="h-px w-12 md:w-16 bg-gold-400"></span>
