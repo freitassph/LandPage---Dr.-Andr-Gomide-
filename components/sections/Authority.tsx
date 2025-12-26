@@ -10,13 +10,6 @@ export const Authority: React.FC = () => {
       {/* Decorative Golden Line */}
       <div className="absolute right-0 top-1/4 w-1/2 h-px bg-gradient-to-l from-gold-400/30 to-transparent"></div>
       
-      {/* Background Big Text - Redesigned: Moved to bottom, Sharper */}
-      <div className="absolute bottom-[-10%] md:bottom-[-15%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-none z-0 select-none overflow-hidden flex justify-center items-center">
-        <span className="font-serif text-[35vw] md:text-[25vw] leading-none text-white/[0.03] font-bold tracking-tighter whitespace-nowrap">
-          PhD
-        </span>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
           
