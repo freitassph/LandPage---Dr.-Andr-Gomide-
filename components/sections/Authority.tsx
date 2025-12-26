@@ -10,8 +10,8 @@ export const Authority: React.FC = () => {
       {/* Decorative Golden Line */}
       <div className="absolute right-0 top-1/4 w-1/2 h-px bg-gradient-to-l from-gold-400/30 to-transparent"></div>
       
-      {/* Background Big Text - Subtler */}
-      <div className="absolute left-4 bottom-0 text-[12rem] md:text-[22rem] font-serif leading-none text-white/[0.02] select-none pointer-events-none z-0">
+      {/* Background Big Text - Subtler and Responsive */}
+      <div className="absolute left-4 bottom-0 text-[8rem] md:text-[18rem] lg:text-[22rem] font-serif leading-none text-white/[0.02] select-none pointer-events-none z-0">
         PhD
       </div>
 
@@ -21,7 +21,7 @@ export const Authority: React.FC = () => {
           {/* Image Side - Lighter presentation */}
           <div className="w-full lg:w-1/2 relative lg:pr-16 order-2 lg:order-1">
             <FadeIn direction="right" duration={1200}>
-              <div className="relative z-10 mx-auto max-w-md">
+              <div className="relative z-10 mx-auto max-w-sm md:max-w-md">
                 {/* Frame */}
                 <div className="absolute -top-6 -left-6 w-full h-full border border-gold-400/20 z-0 hidden md:block transition-transform duration-1000 group-hover:translate-x-2 group-hover:translate-y-2"></div>
                 
@@ -38,8 +38,8 @@ export const Authority: React.FC = () => {
                 </div>
                 
                 {/* Floating Badge - Brighter */}
-                <div className="absolute -bottom-6 -right-2 md:-bottom-10 md:-right-12 w-48 md:w-56 bg-navy-800/90 backdrop-blur-xl border border-white/10 p-4 md:p-6 shadow-xl flex flex-col justify-center animate-float">
-                  <span className="text-4xl md:text-5xl font-serif text-gold-300 mb-1 leading-none">20+</span>
+                <div className="absolute -bottom-6 -right-2 md:-bottom-10 md:-right-12 w-40 md:w-56 bg-navy-800/90 backdrop-blur-xl border border-white/10 p-4 md:p-6 shadow-xl flex flex-col justify-center animate-float rounded-sm">
+                  <span className="text-3xl md:text-5xl font-serif text-gold-300 mb-1 leading-none">20+</span>
                   <span className="text-[10px] md:text-xs uppercase tracking-widest text-slate-300 font-medium">Anos de<br/>Experiência</span>
                 </div>
               </div>
@@ -69,22 +69,22 @@ export const Authority: React.FC = () => {
               </div>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:gap-x-8 md:gap-y-12 mt-12 md:mt-16 border-t border-white/10 pt-8 md:pt-12">
+              <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:gap-x-8 md:gap-y-12 mt-12 md:mt-16 border-t border-white/10 pt-8 md:pt-12">
                 <div className="group">
-                  <h4 className="font-serif text-2xl md:text-3xl text-white mb-2 group-hover:text-gold-300 transition-colors">PhD & Mestre</h4>
-                  <p className="text-[10px] uppercase tracking-widest text-slate-400 font-medium">Ciências da Saúde - UFG</p>
+                  <h4 className="font-serif text-xl md:text-3xl text-white mb-2 group-hover:text-gold-300 transition-colors">PhD & Mestre</h4>
+                  <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-400 font-medium">Ciências da Saúde - UFG</p>
                 </div>
                 <div className="group">
-                  <h4 className="font-serif text-2xl md:text-3xl text-white mb-2 group-hover:text-gold-300 transition-colors">Coordenador</h4>
-                  <p className="text-[10px] uppercase tracking-widest text-slate-400 font-medium">Especialização ABO-GO</p>
+                  <h4 className="font-serif text-xl md:text-3xl text-white mb-2 group-hover:text-gold-300 transition-colors">Coordenador</h4>
+                  <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-400 font-medium">Especialização ABO-GO</p>
                 </div>
                 <div className="group">
-                  <h4 className="font-serif text-2xl md:text-3xl text-white mb-2 group-hover:text-gold-300 transition-colors">Pesquisador</h4>
-                  <p className="text-[10px] uppercase tracking-widest text-slate-400 font-medium">Publicações Internacionais</p>
+                  <h4 className="font-serif text-xl md:text-3xl text-white mb-2 group-hover:text-gold-300 transition-colors">Pesquisador</h4>
+                  <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-400 font-medium">Publicações Internacionais</p>
                 </div>
                 <div className="group">
-                   <h4 className="font-serif text-2xl md:text-3xl text-white mb-2 group-hover:text-gold-300 transition-colors">Clínico</h4>
-                   <p className="text-[10px] uppercase tracking-widest text-slate-400 font-medium">Microscopia Avançada</p>
+                   <h4 className="font-serif text-xl md:text-3xl text-white mb-2 group-hover:text-gold-300 transition-colors">Clínico</h4>
+                   <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-400 font-medium">Microscopia Avançada</p>
                 </div>
               </div>
             </FadeIn>

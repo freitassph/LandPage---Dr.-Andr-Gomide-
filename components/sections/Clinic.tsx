@@ -26,11 +26,11 @@ export const Clinic: React.FC = () => {
                 <span className="text-cyan-300 text-[10px] font-bold tracking-[0.2em] uppercase">Clínica Particular</span>
               </div>
 
-              <h2 className="font-serif text-5xl md:text-6xl text-slate-50 mb-6 leading-tight">
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-50 mb-6 leading-tight">
                 Tecnologia a favor do <br/><span className="italic text-cyan-400 font-light">Seu Conforto</span>
               </h2>
               
-              <p className="text-slate-300 text-lg font-light leading-relaxed mb-8 border-l-2 border-cyan-400/30 pl-6">
+              <p className="text-slate-300 text-base md:text-lg font-light leading-relaxed mb-8 border-l-2 border-cyan-400/30 pl-6">
                 Esqueça o medo do tratamento de canal. Utilizamos tecnologia microscópica para procedimentos <strong>minimamente invasivos</strong>, mais rápidos e, na maioria dos casos, em <strong className="text-white">sessão única</strong>.
               </p>
               
@@ -52,7 +52,7 @@ export const Clinic: React.FC = () => {
                 href="https://wa.me/5562984459505?text=Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-4 px-8 py-4 border border-cyan-400/30 text-cyan-300 hover:bg-cyan-400/10 font-bold uppercase tracking-widest text-sm transition-all duration-300 rounded-sm hover:shadow-lg hover:shadow-cyan-400/10 w-full md:w-auto justify-center"
+                className="group inline-flex items-center gap-4 px-8 py-4 border border-cyan-400/30 text-cyan-300 hover:bg-cyan-400/10 font-bold uppercase tracking-widest text-sm transition-all duration-300 rounded-sm hover:shadow-lg hover:shadow-cyan-400/10 w-full md:w-auto justify-center active:scale-[0.98]"
               >
                 Agendar Avaliação
                 <i className="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -61,7 +61,7 @@ export const Clinic: React.FC = () => {
           </div>
 
           {/* Visual Focus: Precision */}
-          <div className="w-full lg:w-1/2 relative h-[350px] md:h-[500px] rounded-lg overflow-hidden group border border-white/5 shadow-2xl">
+          <div className="w-full lg:w-1/2 relative h-[300px] md:h-[500px] rounded-lg overflow-hidden group border border-white/5 shadow-2xl">
              <FadeIn direction="right" delay={200} className="h-full">
                 {/* Image Container */}
                 <div className="absolute inset-0 bg-navy-950">
@@ -69,6 +69,7 @@ export const Clinic: React.FC = () => {
                         src="https://i.ibb.co/Q375YJDH/Gemini-Generated-Image-d57ipxd57ipxd57i.png" 
                         alt="Microscópio Operatório Odontológico em uso clínico"
                         className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-[2s] ease-out" 
+                        loading="lazy"
                     />
                 </div>
                 
@@ -78,7 +79,7 @@ export const Clinic: React.FC = () => {
                 
                 {/* Floating Content */}
                 <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 p-6 md:p-8 bg-navy-900/90 backdrop-blur-xl border border-white/10 border-l-4 border-l-cyan-400 shadow-2xl">
-                  <p className="font-serif text-xl md:text-2xl text-white italic mb-2">"A gente só trata o que vê."</p>
+                  <p className="font-serif text-lg md:text-2xl text-white italic mb-2">"A gente só trata o que vê."</p>
                   <p className="text-[10px] text-cyan-300 uppercase tracking-widest font-bold">Filosofia da Microscopia</p>
                 </div>
             </FadeIn>

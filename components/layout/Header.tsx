@@ -58,7 +58,7 @@ export const Header: React.FC = () => {
     <>
       <header 
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b 
-        ${scrolled 
+        ${scrolled && !isMobileMenuOpen 
           ? 'py-3 bg-navy-950/95 backdrop-blur-xl border-navy-800 shadow-xl' 
           : 'py-4 md:py-6 bg-transparent border-transparent'
         }`}
@@ -104,7 +104,7 @@ export const Header: React.FC = () => {
               href={clinicWhatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 px-5 py-2 bg-white/5 hover:bg-gold-400 border border-white/10 hover:border-gold-400 text-gold-300 hover:text-navy-900 transition-all duration-300 text-[10px] md:text-xs font-bold uppercase tracking-widest rounded-sm whitespace-nowrap"
+              className="hidden sm:flex items-center gap-2 px-5 py-2 bg-white/5 hover:bg-gold-400 border border-white/10 hover:border-gold-400 text-gold-300 hover:text-navy-900 transition-all duration-300 text-[10px] md:text-xs font-bold uppercase tracking-widest rounded-sm whitespace-nowrap active:scale-95"
             >
               <span>Agendar</span>
             </a>
@@ -112,7 +112,7 @@ export const Header: React.FC = () => {
             {/* Mobile Toggle Button - Always Visible on Mobile/Tablet */}
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden w-10 h-10 flex items-center justify-center text-gold-300 text-2xl focus:outline-none active:scale-95 transition-transform"
+              className="lg:hidden w-10 h-10 flex items-center justify-center text-gold-300 text-2xl focus:outline-none active:scale-95 transition-transform p-2"
               aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             >
               <i className={`fa-solid transition-all duration-300 ${isMobileMenuOpen ? 'fa-xmark rotate-90' : 'fa-bars-staggered'}`}></i>
@@ -136,7 +136,7 @@ export const Header: React.FC = () => {
               href={link.href} 
               onClick={(e) => handleNavClick(e, link.href)}
               className={`text-3xl font-serif text-slate-300 hover:text-gold-400 transition-all duration-500 transform 
-                ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
+                ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} active:scale-95`}
               style={{ transitionDelay: `${idx * 100}ms` }}
             >
               {link.name}
@@ -152,7 +152,7 @@ export const Header: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => setIsMobileMenuOpen(false)}
-          className={`relative z-10 px-8 py-4 bg-gold-400 text-navy-900 font-bold uppercase tracking-widest text-sm hover:bg-gold-300 transition-all duration-500 rounded-sm shadow-lg shadow-gold-400/20 transform
+          className={`relative z-10 px-8 py-4 bg-gold-400 text-navy-900 font-bold uppercase tracking-widest text-sm hover:bg-gold-300 transition-all duration-500 rounded-sm shadow-lg shadow-gold-400/20 transform active:scale-95
             ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
           style={{ transitionDelay: '400ms' }}
         >

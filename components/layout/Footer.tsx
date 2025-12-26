@@ -46,12 +46,12 @@ export const Footer: React.FC = () => {
       </footer>
 
       {/* Luxury Mobile Sticky Bar */}
-      <div className="fixed bottom-0 left-0 w-full md:hidden z-50 flex h-16 bg-navy-900/90 backdrop-blur-xl border-t border-white/10">
+      <div className="fixed bottom-0 left-0 w-full md:hidden z-50 flex h-16 bg-navy-900/95 backdrop-blur-xl border-t border-white/10 shadow-2xl">
         <a 
           href={`${studentWhatsapp}?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20cursos%20e%20mentoria.`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 text-slate-300 text-xs uppercase tracking-widest hover:bg-white/5 transition-colors border-r border-white/10"
+          className="flex-1 flex items-center justify-center gap-2 text-slate-300 text-xs uppercase tracking-widest hover:bg-white/5 transition-colors border-r border-white/10 active:bg-white/10"
         >
           <i className="fa-solid fa-graduation-cap text-gold-400"></i>
           Sou Aluno
@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
           href={`${clinicWhatsapp}?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20Andr%C3%A9%20Gomide.`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 bg-gold-400 text-navy-900 font-bold text-xs uppercase tracking-widest hover:bg-gold-300 transition-colors"
+          className="flex-1 flex items-center justify-center gap-2 bg-gold-400 text-navy-900 font-bold text-xs uppercase tracking-widest hover:bg-gold-300 transition-colors active:bg-gold-500"
         >
           <i className="fa-brands fa-whatsapp"></i>
           Agendar
