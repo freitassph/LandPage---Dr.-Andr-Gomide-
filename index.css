@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #02040a;
+  background-image: radial-gradient(circle at 50% -20%, #0F1729, #02040a);
+  background-attachment: fixed;
+}
+
+/* Premium Selection */
+::selection {
+  background: rgba(212, 175, 55, 0.2);
+  color: #FBF8EA;
+}
+
+/* Smooth Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #02040a; }
+::-webkit-scrollbar-thumb { background: #1A2338; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+
+.text-gold-gradient {
+  background: linear-gradient(to right, #D4AF37, #FBF8EA, #D4AF37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: shine 8s linear infinite;
+}
+
+/* Shimmer Effect Utility */
+.animate-shimmer-slide {
+  background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Clinical Glow Helper */
+.clinical-glow {
+  box-shadow: 0 0 40px -10px rgba(34, 211, 238, 0.15);
+}
