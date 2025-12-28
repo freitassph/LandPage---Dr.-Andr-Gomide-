@@ -84,8 +84,8 @@ export const Hero: React.FC = () => {
   const clinicWhatsapp = "https://wa.me/5562984459505?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20Andr%C3%A9%20Gomide.";
 
   return (
-    // Alterado: min-h-[100dvh] para garantir altura total mobile correta. Ajuste de padding top para compensar header fixo no mobile.
-    <section className="relative min-h-[100dvh] flex items-center justify-center pt-32 pb-16 md:py-20 lg:py-0 px-4 sm:px-6 overflow-hidden">
+    // Alterado: Removido 'lg:py-0' e aumentado o padding-top (pt-32 md:pt-40) para compensar a altura do Header fixo e evitar sobreposição.
+    <section className="relative min-h-[100dvh] flex items-center justify-center pt-32 pb-16 md:pt-40 md:pb-20 px-4 sm:px-6 overflow-hidden">
       
       {/* 1. Global Light Source */}
       <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[120%] h-[800px] bg-gradient-radial from-navy-800/80 via-navy-950/20 to-transparent pointer-events-none z-0"></div>
