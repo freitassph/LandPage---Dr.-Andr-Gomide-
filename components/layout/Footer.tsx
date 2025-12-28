@@ -59,8 +59,9 @@ export const Footer: React.FC = () => {
         </div>
       </footer>
 
-      {/* Luxury Mobile Sticky Bar - Elevated Z-Index (50) to be above content but below Modals if any */}
-      <div className="fixed bottom-0 left-0 w-full md:hidden z-50 flex h-16 bg-navy-900/80 backdrop-blur-xl border-t border-white/10 shadow-[0_-5px_20px_rgba(0,0,0,0.5)] safe-area-pb">
+      {/* Luxury Mobile Sticky Bar - Elevated Z-Index (50) to be above content but below Modals if any. 
+          Updated: Darker bg and higher blur for maximum readability per request. */}
+      <div className="fixed bottom-0 left-0 w-full md:hidden z-50 flex h-16 bg-navy-950/90 backdrop-blur-2xl border-t border-white/10 shadow-[0_-5px_20px_rgba(0,0,0,0.5)] safe-area-pb">
         <a 
           href={`${studentWhatsapp}?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20cursos%20e%20mentoria.`}
           target="_blank"

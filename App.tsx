@@ -52,10 +52,10 @@ const App: React.FC = () => {
         </main>
         <Footer />
 
-        {/* Back to Top Button */}
+        {/* Back to Top Button - Z-Index elevated to 60 to sit ABOVE the mobile sticky footer (z-50) */}
         <button
           onClick={scrollToTop}
-          className={`fixed bottom-24 right-4 md:bottom-8 md:right-8 z-40 w-10 h-10 md:w-12 md:h-12 rounded-full bg-navy-800 border border-gold-400/30 text-gold-400 shadow-lg flex items-center justify-center hover:bg-gold-400 hover:text-navy-900 transition-all duration-500 transform ${showBackToTop ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none'}`}
+          className={`fixed bottom-24 right-4 md:bottom-8 md:right-8 z-[60] w-10 h-10 md:w-12 md:h-12 rounded-full bg-navy-800 border border-gold-400/30 text-gold-400 shadow-lg flex items-center justify-center hover:bg-gold-400 hover:text-navy-900 transition-all duration-500 transform ${showBackToTop ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none'}`}
           aria-label="Voltar ao topo"
         >
           <i className="fa-solid fa-arrow-up"></i>
