@@ -48,7 +48,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ children, className =
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setOpacity(1)}
       onMouseLeave={() => setOpacity(0)}
-      className={`relative h-full bg-white/[0.02] backdrop-blur-md border border-white/5 p-8 md:p-10 transition-all duration-500 hover:bg-white/[0.04] hover:-translate-y-2 group rounded-sm shadow-lg overflow-hidden ${className}`}
+      className={`relative h-full bg-white/[0.02] backdrop-blur-md border border-white/5 p-6 md:p-10 transition-all duration-500 hover:bg-white/[0.04] hover:-translate-y-2 group rounded-sm shadow-lg overflow-hidden ${className}`}
     >
       <div 
         className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 z-0"
@@ -66,16 +66,17 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ children, className =
 
 export const Testimonials: React.FC = () => {
   return (
-    <section className="py-20 md:py-32 bg-navy-950 relative overflow-hidden">
+    // Fluid spacing py-16 -> py-24 -> py-32
+    <section className="py-16 md:py-24 lg:py-32 bg-navy-950 relative overflow-hidden">
       {/* Background setup */}
       <div className="absolute inset-0 bg-radial-gradient from-navy-900 to-navy-950 opacity-50"></div>
       <div className="absolute inset-0 bg-noise opacity-[0.03]"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <FadeIn>
-          <div className="flex flex-col items-center text-center mb-16 md:mb-24">
-            <span className="text-slate-500 font-sans text-xs tracking-[0.3em] uppercase font-bold mb-4">Social Proof</span>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-slate-50">Experiências Reais</h2>
+          <div className="flex flex-col items-center text-center mb-12 md:mb-16 lg:mb-24">
+            {/* Removed Social Proof text span */}
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-slate-50">Experiências Reais</h2>
           </div>
         </FadeIn>
 
@@ -90,7 +91,7 @@ export const Testimonials: React.FC = () => {
               <FadeIn key={idx} delay={idx * 150} direction="up" className="h-full">
                 <TestimonialCard className={borderColor}>
                   {/* Header Badge & Stars */}
-                  <div className="flex justify-between items-start mb-8">
+                  <div className="flex justify-between items-start mb-6 md:mb-8">
                     <span className={`text-[10px] font-bold tracking-widest px-3 py-1 rounded-full border ${badgeBg}`}>
                       {item.type}
                     </span>
@@ -102,9 +103,9 @@ export const Testimonials: React.FC = () => {
                   </div>
                   
                   {/* Quote Content */}
-                  <div className="mb-8 relative flex-grow">
-                     <i className={`fa-solid fa-quote-left text-2xl mb-4 opacity-20 ${accentColor}`}></i>
-                     <p className="text-slate-300 font-serif text-lg leading-relaxed group-hover:text-slate-100 transition-colors">
+                  <div className="mb-6 md:mb-8 relative flex-grow">
+                     <i className={`fa-solid fa-quote-left text-xl md:text-2xl mb-4 opacity-20 ${accentColor}`}></i>
+                     <p className="text-slate-300 font-serif text-base md:text-lg leading-relaxed group-hover:text-slate-100 transition-colors">
                       "{item.quote}"
                      </p>
                   </div>

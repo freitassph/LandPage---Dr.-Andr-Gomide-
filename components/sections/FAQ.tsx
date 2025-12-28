@@ -24,11 +24,12 @@ export const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-32 bg-navy-950">
+    // Fluid spacing py-16 -> py-24 -> py-32
+    <section className="py-16 md:py-24 lg:py-32 bg-navy-950">
       <div className="container mx-auto px-4 max-w-4xl">
         <FadeIn>
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl text-slate-50 mb-4">Dúvidas Frequentes</h2>
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl text-slate-50 mb-4">Dúvidas Frequentes</h2>
           </div>
         </FadeIn>
 
@@ -39,19 +40,19 @@ export const FAQ: React.FC = () => {
                 <button
                   onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                   aria-expanded={openIndex === idx}
-                  className="w-full flex justify-between items-center py-8 text-left focus:outline-none"
+                  className="w-full flex justify-between items-center py-6 md:py-8 text-left focus:outline-none"
                 >
-                  <span className={`text-xl font-serif transition-colors duration-300 ${openIndex === idx ? 'text-gold-300' : 'text-slate-300 group-hover:text-slate-100'}`}>
+                  <span className={`text-base md:text-xl font-serif transition-colors duration-300 pr-4 ${openIndex === idx ? 'text-gold-300' : 'text-slate-300 group-hover:text-slate-100'}`}>
                     {faq.question}
                   </span>
-                  <div className={`w-8 h-8 rounded-full border border-white/10 flex items-center justify-center transition-all duration-300 ${openIndex === idx ? 'bg-gold-400 border-gold-400 rotate-45' : 'group-hover:border-white/30'}`}>
+                  <div className={`flex-shrink-0 w-8 h-8 rounded-full border border-white/10 flex items-center justify-center transition-all duration-300 ${openIndex === idx ? 'bg-gold-400 border-gold-400 rotate-45' : 'group-hover:border-white/30'}`}>
                     <i className={`fa-solid fa-plus text-xs transition-colors ${openIndex === idx ? 'text-navy-900' : 'text-slate-400'}`}></i>
                   </div>
                 </button>
                 <div 
-                  className={`transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden ${openIndex === idx ? 'max-h-48 opacity-100 pb-8' : 'max-h-0 opacity-0'}`}
+                  className={`transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden ${openIndex === idx ? 'max-h-64 opacity-100 pb-8' : 'max-h-0 opacity-0'}`}
                 >
-                  <div className="text-slate-400 font-sans font-light leading-relaxed pr-12 text-sm md:text-base">
+                  <div className="text-slate-400 font-sans font-light leading-relaxed pr-0 md:pr-12 text-sm md:text-base">
                     {faq.answer}
                   </div>
                 </div>
