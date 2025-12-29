@@ -7,10 +7,8 @@ import { Clinic } from './components/sections/Clinic';
 import { Testimonials } from './components/sections/Testimonials';
 import { FAQ } from './components/sections/FAQ';
 import { Footer } from './components/layout/Footer';
-import { Preloader } from './components/ui/Preloader';
 
 const App: React.FC = () => {
-  const [loading, setLoading] = useState(true);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
@@ -27,31 +25,28 @@ const App: React.FC = () => {
 
   return (
     <>
-      {/* Cinematic Preloader */}
-      {loading && <Preloader onComplete={() => setLoading(false)} />}
-
       {/* Main Content */}
-      <div className={`flex flex-col min-h-screen bg-navy-950 transition-opacity duration-1000 ${loading ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
+      <div className="flex flex-col min-h-screen bg-navy-950">
         <Header />
         <main className="flex-grow">
           <div id="hero"><Hero /></div>
           
           {/* 
-             Using scroll-mt-24 (96px) for mobile (Header ~75px) 
-             and scroll-mt-32 (128px) for desktop (Header ~97px).
-             This guarantees the section starts comfortably below the fixed header.
+             Using scroll-mt-20 (80px) for mobile (Header ~65-75px) 
+             and scroll-mt-28 (112px) for desktop (Header ~80-100px).
+             Optimized for tighter visual alignment.
           */}
-          <div id="authority" className="scroll-mt-24 md:scroll-mt-32"><Authority /></div>
+          <div id="authority" className="scroll-mt-20 md:scroll-mt-28"><Authority /></div>
           
           {/* The Split Paths: Specialized Content */}
-          <div id="mentoria" className="scroll-mt-24 md:scroll-mt-32"><Mentorship /></div>
-          <div id="clinica" className="scroll-mt-24 md:scroll-mt-32"><Clinic /></div>
+          <div id="mentoria" className="scroll-mt-20 md:scroll-mt-28"><Mentorship /></div>
+          <div id="clinica" className="scroll-mt-20 md:scroll-mt-28"><Clinic /></div>
           
           {/* Social Proof & Validation */}
-          <div id="testimonials" className="scroll-mt-24 md:scroll-mt-32"><Testimonials /></div>
+          <div id="testimonials" className="scroll-mt-20 md:scroll-mt-28"><Testimonials /></div>
           
           {/* Information */}
-          <div id="faq" className="scroll-mt-24 md:scroll-mt-32"><FAQ /></div>
+          <div id="faq" className="scroll-mt-20 md:scroll-mt-28"><FAQ /></div>
         </main>
         <Footer />
 

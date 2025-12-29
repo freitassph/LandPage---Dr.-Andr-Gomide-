@@ -84,8 +84,8 @@ export const Hero: React.FC = () => {
   const clinicWhatsapp = "https://wa.me/5562984459505?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20Andr%C3%A9%20Gomide.";
 
   return (
-    // Alterado: Ajuste fino do padding-top (pt-24 md:pt-32) para reduzir o espaço excessivo, mantendo a proteção contra o header.
-    <section className="relative min-h-[100dvh] flex items-center justify-center pt-24 pb-12 md:pt-32 md:pb-20 px-4 sm:px-6 overflow-hidden">
+    // Alterado: Reduzi pt-24 para pt-20 e pt-32 para pt-28. Aumentei pb para deslocar o centro ótico para cima.
+    <section className="relative min-h-[100dvh] flex items-center justify-center pt-20 pb-20 md:pt-28 md:pb-32 px-4 sm:px-6 overflow-hidden">
       
       {/* 1. Global Light Source */}
       <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[120%] h-[800px] bg-gradient-radial from-navy-800/80 via-navy-950/20 to-transparent pointer-events-none z-0"></div>
@@ -110,9 +110,10 @@ export const Hero: React.FC = () => {
       <div className="container mx-auto max-w-7xl relative z-10 flex flex-col items-center">
         
         {/* Header Content */}
-        <div className="text-center max-w-5xl mx-auto mb-10 md:mb-16 lg:mb-24 relative mt-0 md:mt-0">
+        {/* Reduzi mb-10 md:mb-16 para mb-8 md:mb-12 para aproximar os cards */}
+        <div className="text-center max-w-5xl mx-auto mb-8 md:mb-12 lg:mb-16 relative mt-0 md:mt-0">
           <FadeIn delay={0}>
-            <div className="flex items-center justify-center gap-3 md:gap-4 mb-4 md:mb-8">
+            <div className="flex items-center justify-center gap-3 md:gap-4 mb-3 md:mb-6">
               <div className="h-[1px] w-6 md:w-12 bg-gradient-to-r from-transparent via-gold-300 to-transparent"></div>
               <span className="text-gold-200 text-[10px] md:text-sm tracking-[0.25em] md:tracking-[0.4em] font-semibold uppercase font-sans whitespace-nowrap">
                 Referência em Porangatu
@@ -123,7 +124,7 @@ export const Hero: React.FC = () => {
           
           <FadeIn delay={200}>
             {/* Typography scale optimization: text-4xl on mobile -> text-5xl on sm -> text-7xl+ on md/lg */}
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.1] md:leading-[1.05] text-slate-100 mb-6 md:mb-8 tracking-tight drop-shadow-2xl">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.1] md:leading-[1.05] text-slate-100 mb-4 md:mb-6 tracking-tight drop-shadow-2xl">
               Precisão <span className="font-light italic text-slate-300">Clínica</span>
               <br />
               <span className="text-gold-gradient font-medium relative inline-block">
