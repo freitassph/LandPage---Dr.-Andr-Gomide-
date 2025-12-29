@@ -30,29 +30,33 @@ const App: React.FC = () => {
       {/* Cinematic Preloader */}
       {loading && <Preloader onComplete={() => setLoading(false)} />}
 
-      {/* Main Content - Rendered but hidden/behind until loading fits, or conditionally rendered depending on preference. 
-          Here keeping it in DOM helps SEO crawlers immediately, but visual reveal happens after. */}
+      {/* Main Content */}
       <div className={`flex flex-col min-h-screen bg-navy-950 transition-opacity duration-1000 ${loading ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
         <Header />
         <main className="flex-grow">
           <div id="hero"><Hero /></div>
           
-          {/* Authority: The bridge establishing credibility for both paths */}
-          <div id="authority"><Authority /></div>
+          {/* 
+             Added scroll-mt (Scroll Margin Top) classes. 
+             This CSS property acts as a safety net for browser-native scrolling, 
+             ensuring that even if JS calculation misses slightly, the browser 
+             knows to leave space above these elements.
+          */}
+          <div id="authority" className="scroll-mt-24 md:scroll-mt-28"><Authority /></div>
           
           {/* The Split Paths: Specialized Content */}
-          <div id="mentoria"><Mentorship /></div>
-          <div id="clinica"><Clinic /></div>
+          <div id="mentoria" className="scroll-mt-24 md:scroll-mt-28"><Mentorship /></div>
+          <div id="clinica" className="scroll-mt-24 md:scroll-mt-28"><Clinic /></div>
           
           {/* Social Proof & Validation */}
-          <div id="testimonials"><Testimonials /></div>
+          <div id="testimonials" className="scroll-mt-24 md:scroll-mt-28"><Testimonials /></div>
           
           {/* Information */}
-          <div id="faq"><FAQ /></div>
+          <div id="faq" className="scroll-mt-24 md:scroll-mt-28"><FAQ /></div>
         </main>
         <Footer />
 
-        {/* Back to Top Button - Z-Index elevated to 60 to sit ABOVE the mobile sticky footer (z-50) */}
+        {/* Back to Top Button */}
         <button
           onClick={scrollToTop}
           className={`fixed bottom-24 right-4 md:bottom-8 md:right-8 z-[60] w-10 h-10 md:w-12 md:h-12 rounded-full bg-navy-800 border border-gold-400/30 text-gold-400 shadow-lg flex items-center justify-center hover:bg-gold-400 hover:text-navy-900 transition-all duration-500 transform ${showBackToTop ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none'}`}

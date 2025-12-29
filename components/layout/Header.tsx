@@ -36,20 +36,17 @@ export const Header: React.FC = () => {
     const element = document.getElementById(targetId);
     
     if (element) {
-      // 2. Delay aumentado para 100ms para garantir repaint completo após fechar menu
+      // 2. Timeout para garantir que o layout estabilize (especialmente mobile address bar)
       setTimeout(() => {
         const isMobile = window.innerWidth < 768;
         
-        // Offset Estratégico:
-        // O Header compactado tem ~65px.
-        // As seções têm padding-top de 64px (mobile) a 96px (desktop).
-        // Se usarmos um offset igual à altura do header (~65px), visualmente sobra muito espaço (o padding inteiro da seção).
-        // Usamos um offset MENOR (20px/40px) para que o Header "cubra" parte do padding vazio da seção,
-        // deixando o conteúdo (Título) visualmente agradável e próximo, mas sem cortar.
-        
-        // Mobile: Padding 64px. Offset 20px -> Header (65px) cobre 45px do padding. Sobra 19px de respiro.
-        // Desktop: Padding 96px. Offset 40px -> Header (65px) cobre 25px do padding. Sobra 71px de respiro (premium feel).
-        const offset = isMobile ? 20 : 40; 
+        // Offset de Segurança (Vercel/Production Fix):
+        // Header Compacto: ~65px.
+        // Mobile: 85px (65px Header + 20px Respiro).
+        // Desktop: 105px (80px Header + 25px Respiro).
+        // Aumentamos os valores para garantir que NUNCA corte o título, 
+        // compensando variações de renderização entre navegadores.
+        const offset = isMobile ? 85 : 105; 
         
         const elementPosition = element.getBoundingClientRect().top + window.scrollY;
         const offsetPosition = elementPosition - offset;
