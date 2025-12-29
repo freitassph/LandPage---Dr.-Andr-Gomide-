@@ -40,13 +40,14 @@ export const Header: React.FC = () => {
       setTimeout(() => {
         const isMobile = window.innerWidth < 768;
         
-        // --- SOLUÇÃO DE SEGURANÇA MÁXIMA ---
-        // Header Altura Real: ~70px (Mobile) / ~90px (Desktop)
-        // Offset Anterior: 85px/105px (Ainda cortava em alguns dispositivos)
-        // Novo Offset: 120px (Mobile) / 150px (Desktop)
-        // Isso garante ~50px de espaço VISÍVEL entre o header e o título.
-        // É melhor sobrar espaço do que cortar o conteúdo.
-        const offset = isMobile ? 120 : 150; 
+        // --- AJUSTE DE PRECISÃO (GOLDILOCKS ZONE) ---
+        // O problema anterior ("sobra") ocorria porque o offset (150px) somava com o padding da seção.
+        // Agora, definimos o offset apenas para a altura real do Header + pequeno buffer.
+        // Mobile Header: ~60-65px -> Offset 70px
+        // Desktop Header: ~80px -> Offset 90px
+        // Isso alinha o TOPO da seção (background) com o fundo do Header.
+        // O texto ficará perfeitamente posicionado graças ao padding interno da própria seção (py-24/32).
+        const offset = isMobile ? 70 : 90; 
         
         const elementPosition = element.getBoundingClientRect().top + window.scrollY;
         const offsetPosition = elementPosition - offset;

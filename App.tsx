@@ -37,22 +37,21 @@ const App: React.FC = () => {
           <div id="hero"><Hero /></div>
           
           {/* 
-             Updated scroll-mt (Scroll Margin Top) classes to NUCLEAR values.
-             scroll-mt-32 = 128px (Mobile)
-             scroll-mt-40 = 160px (Desktop)
-             These match the updated JS offsets in Header.tsx, providing a huge safety buffer.
+             Adjusted scroll-mt to match new Header.tsx offsets.
+             scroll-mt-20 (80px) for mobile / scroll-mt-24 (96px) for desktop.
+             This removes the "excessive gap" while keeping content safe from the header.
           */}
-          <div id="authority" className="scroll-mt-32 md:scroll-mt-40"><Authority /></div>
+          <div id="authority" className="scroll-mt-20 md:scroll-mt-24"><Authority /></div>
           
           {/* The Split Paths: Specialized Content */}
-          <div id="mentoria" className="scroll-mt-32 md:scroll-mt-40"><Mentorship /></div>
-          <div id="clinica" className="scroll-mt-32 md:scroll-mt-40"><Clinic /></div>
+          <div id="mentoria" className="scroll-mt-20 md:scroll-mt-24"><Mentorship /></div>
+          <div id="clinica" className="scroll-mt-20 md:scroll-mt-24"><Clinic /></div>
           
           {/* Social Proof & Validation */}
-          <div id="testimonials" className="scroll-mt-32 md:scroll-mt-40"><Testimonials /></div>
+          <div id="testimonials" className="scroll-mt-20 md:scroll-mt-24"><Testimonials /></div>
           
           {/* Information */}
-          <div id="faq" className="scroll-mt-32 md:scroll-mt-40"><FAQ /></div>
+          <div id="faq" className="scroll-mt-20 md:scroll-mt-24"><FAQ /></div>
         </main>
         <Footer />
 
