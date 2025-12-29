@@ -23,7 +23,7 @@ export const Clinic: React.FC = () => {
           {/* Content Side - Left */}
           <div className="w-full lg:w-1/2 max-w-2xl lg:max-w-none mx-auto lg:mx-0 lg:pr-10">
             <FadeIn>
-              <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-cyan-400/30 rounded-full bg-cyan-400/5 backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-cyan-400/30 rounded-full bg-cyan-400/5 backdrop-blur-md shadow-[0_0_15px_rgba(34,211,238,0.1)]">
                 <i className="fa-solid fa-tooth text-cyan-400 text-[10px]"></i>
                 <span className="text-cyan-300 text-[10px] font-bold tracking-[0.2em] uppercase">Clínica Particular</span>
               </div>
@@ -38,7 +38,7 @@ export const Clinic: React.FC = () => {
               
               <div className="space-y-4 mb-10">
                 {technologies.map((tech, idx) => (
-                  <div key={idx} className="flex gap-5 group p-4 rounded-lg hover:bg-white/5 transition-all duration-500 hover:translate-x-2 border border-transparent hover:border-white/5">
+                  <div key={idx} className="flex gap-5 group p-4 rounded-lg bg-navy-800/30 hover:bg-navy-800/60 transition-all duration-500 hover:translate-x-2 border border-white/5 hover:border-cyan-400/30">
                     <div className="w-12 h-12 flex-shrink-0 rounded-xl bg-navy-800 border border-white/10 flex items-center justify-center group-hover:border-cyan-400/50 group-hover:text-cyan-400 transition-all shadow-lg group-hover:shadow-[0_0_15px_rgba(34,211,238,0.2)]">
                       <i className={`fa-solid ${tech.icon} text-slate-400 text-xl group-hover:text-cyan-400 transition-colors`}></i>
                     </div>

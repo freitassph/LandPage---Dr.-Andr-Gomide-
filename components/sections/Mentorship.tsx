@@ -3,12 +3,12 @@ import { FadeIn } from '../ui/FadeIn';
 
 export const Mentorship: React.FC = () => {
   const syllabus = [
-    "Abertura Coronária Ninja",
-    "Localização de Canais Calcificados",
-    "Instrumentação Mecanizada",
-    "Irrigação Ultrassônica",
-    "Obturação Tridimensional",
-    "Resolução de Acidentes e Desvios"
+    { name: "Abertura Coronária Ninja", icon: "fa-mask" },
+    { name: "Canais Calcificados", icon: "fa-magnifying-glass" },
+    { name: "Instrumentação Mecanizada", icon: "fa-robot" },
+    { name: "Irrigação Ultrassônica", icon: "fa-water" },
+    { name: "Obturação Tridimensional", icon: "fa-cube" },
+    { name: "Resolução de Acidentes", icon: "fa-kit-medical" }
   ];
 
   return (
@@ -25,7 +25,7 @@ export const Mentorship: React.FC = () => {
           
           <div className="w-full lg:w-1/2 max-w-2xl lg:max-w-none mx-auto lg:mx-0">
             <FadeIn>
-              <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-gold-400/30 rounded-full bg-gold-400/5 backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-gold-400/30 rounded-full bg-gold-400/5 backdrop-blur-md shadow-[0_0_15px_rgba(212,175,55,0.1)]">
                 <i className="fa-solid fa-crown text-gold-400 text-[10px]"></i>
                 <span className="text-gold-300 text-[10px] font-bold tracking-[0.2em] uppercase">Exclusivo para Dentistas</span>
               </div>
@@ -38,14 +38,16 @@ export const Mentorship: React.FC = () => {
                 A insegurança em casos complexos trava o crescimento do seu consultório. O <strong className="text-white">Método Endo 360</strong> transforma sua prática clínica através de protocolos previsíveis e cientificamente embasados.
               </p>
               
+              {/* Syllabs Grid - Visually Enhanced */}
               <div className="bg-navy-900/50 border border-white/5 p-6 md:p-8 rounded-xl backdrop-blur-sm mb-10 hover:border-gold-400/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold-900/10">
                 <h4 className="text-white font-serif text-lg md:text-xl mb-6">O que você vai dominar:</h4>
-                {/* 1 col on mobile, 2 cols on sm+ */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {syllabus.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-3 group p-2 -ml-2 rounded-lg hover:bg-white/5 transition-all duration-300 cursor-default">
-                      <div className="w-1.5 h-1.5 flex-shrink-0 rounded-full bg-gold-400 group-hover:scale-150 group-hover:shadow-[0_0_10px_rgba(212,175,55,0.8)] transition-all duration-300"></div>
-                      <span className="text-slate-400 font-sans text-sm group-hover:text-gold-100 group-hover:translate-x-1 transition-all duration-300">{item}</span>
+                    <div key={idx} className="flex items-center gap-4 group p-3 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 transition-all duration-300 border border-transparent hover:border-gold-400/20 cursor-default">
+                      <div className="w-8 h-8 flex-shrink-0 rounded-md bg-navy-800 flex items-center justify-center text-gold-400/70 group-hover:text-gold-300 group-hover:scale-110 transition-all duration-300">
+                        <i className={`fa-solid ${item.icon} text-sm`}></i>
+                      </div>
+                      <span className="text-slate-400 font-sans text-sm group-hover:text-gold-100 transition-colors duration-300 font-medium">{item.name}</span>
                     </div>
                   ))}
                 </div>

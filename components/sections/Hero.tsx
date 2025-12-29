@@ -29,7 +29,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({ children, href, className
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative h-full group rounded-xl md:rounded-2xl overflow-hidden ${className}`}
+      className={`relative h-full group rounded-xl md:rounded-2xl overflow-hidden transform transition-transform duration-500 hover:scale-[1.02] ${className}`}
     >
       {/* Border Spotlight */}
       <div 
