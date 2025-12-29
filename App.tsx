@@ -32,21 +32,23 @@ const App: React.FC = () => {
           <div id="hero"><Hero /></div>
           
           {/* 
-             Using scroll-mt-20 (80px) for mobile (Header ~65-75px) 
-             and scroll-mt-28 (112px) for desktop (Header ~80-100px).
-             Optimized for tighter visual alignment.
+             Updated Scroll Margins:
+             Header Height Scrolled is approx 65px.
+             scroll-mt-20 (80px) provides a tight 15px buffer.
+             scroll-mt-24 (96px) provides a safer 30px buffer.
+             Changed from md:scroll-mt-28 (112px) to remove the excess gap ("sobra").
           */}
-          <div id="authority" className="scroll-mt-20 md:scroll-mt-28"><Authority /></div>
+          <div id="authority" className="scroll-mt-20 md:scroll-mt-24"><Authority /></div>
           
           {/* The Split Paths: Specialized Content */}
-          <div id="mentoria" className="scroll-mt-20 md:scroll-mt-28"><Mentorship /></div>
-          <div id="clinica" className="scroll-mt-20 md:scroll-mt-28"><Clinic /></div>
+          <div id="mentoria" className="scroll-mt-20 md:scroll-mt-24"><Mentorship /></div>
+          <div id="clinica" className="scroll-mt-20 md:scroll-mt-24"><Clinic /></div>
           
           {/* Social Proof & Validation */}
-          <div id="testimonials" className="scroll-mt-20 md:scroll-mt-28"><Testimonials /></div>
+          <div id="testimonials" className="scroll-mt-20 md:scroll-mt-24"><Testimonials /></div>
           
           {/* Information */}
-          <div id="faq" className="scroll-mt-20 md:scroll-mt-28"><FAQ /></div>
+          <div id="faq" className="scroll-mt-20 md:scroll-mt-24"><FAQ /></div>
         </main>
         <Footer />
 
