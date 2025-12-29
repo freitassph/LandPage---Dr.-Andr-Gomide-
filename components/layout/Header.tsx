@@ -38,12 +38,18 @@ export const Header: React.FC = () => {
       const element = document.getElementById(targetId);
       
       if (element) {
-        const headerOffset = 80; // Ajuste para compensar o header fixo
+        // Cálculo dinâmico do offset baseado no tamanho da tela para evitar cortes
+        // Mobile Header Compacto: ~65px -> Offset 85px (segurança)
+        // Desktop Header Compacto: ~80px -> Offset 110px (segurança)
+        const isMobile = window.innerWidth < 768;
+        const headerOffset = isMobile ? 85 : 110;
+        
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.scrollY - headerOffset;
+        
         window.scrollTo({ top: offsetPosition, behavior: "smooth" });
       }
-    }, 100);
+    }, 50);
   };
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
