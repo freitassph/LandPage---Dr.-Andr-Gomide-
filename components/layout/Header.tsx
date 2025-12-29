@@ -36,25 +36,29 @@ export const Header: React.FC = () => {
     const element = document.getElementById(targetId);
     
     if (element) {
-      // 2. Pequeno delay para garantir que o layout estabilize (após fechar menu/teclado)
+      // 2. Delay aumentado para 100ms para garantir repaint completo após fechar menu
       setTimeout(() => {
-        // Altura do Header Compactado (scrolled) é aprox 65px.
-        // Adicionamos um respiro visual (breathing room) de 10-20px.
-        // Valores anteriores (85/110) eram muito grandes, causando "sobra".
         const isMobile = window.innerWidth < 768;
-        const offset = isMobile ? 75 : 85; 
         
-        // Cálculo absoluto da posição do elemento em relação ao topo do documento
-        const bodyRect = document.body.getBoundingClientRect().top;
-        const elementRect = element.getBoundingClientRect().top;
-        const elementPosition = elementRect - bodyRect;
+        // Offset Estratégico:
+        // O Header compactado tem ~65px.
+        // As seções têm padding-top de 64px (mobile) a 96px (desktop).
+        // Se usarmos um offset igual à altura do header (~65px), visualmente sobra muito espaço (o padding inteiro da seção).
+        // Usamos um offset MENOR (20px/40px) para que o Header "cubra" parte do padding vazio da seção,
+        // deixando o conteúdo (Título) visualmente agradável e próximo, mas sem cortar.
+        
+        // Mobile: Padding 64px. Offset 20px -> Header (65px) cobre 45px do padding. Sobra 19px de respiro.
+        // Desktop: Padding 96px. Offset 40px -> Header (65px) cobre 25px do padding. Sobra 71px de respiro (premium feel).
+        const offset = isMobile ? 20 : 40; 
+        
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
         const offsetPosition = elementPosition - offset;
 
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth'
         });
-      }, 10);
+      }, 100);
     }
   };
 
