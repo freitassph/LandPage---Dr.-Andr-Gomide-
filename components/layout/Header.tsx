@@ -29,27 +29,33 @@ export const Header: React.FC = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     
-    // 1. Fecha o menu primeiro
+    // 1. Fecha o menu imediatamente
     setIsMobileMenuOpen(false);
 
-    // 2. Pequeno delay para permitir que a animação de fechar comece antes de rolar
-    setTimeout(() => {
-      const targetId = href.replace('#', '');
-      const element = document.getElementById(targetId);
-      
-      if (element) {
-        // Cálculo dinâmico do offset baseado no tamanho da tela para evitar cortes
-        // Mobile Header Compacto: ~65px -> Offset 85px (segurança)
-        // Desktop Header Compacto: ~80px -> Offset 110px (segurança)
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+    
+    if (element) {
+      // 2. Pequeno delay para garantir que o layout estabilize (após fechar menu/teclado)
+      setTimeout(() => {
+        // Altura do Header Compactado (scrolled) é aprox 65px.
+        // Adicionamos um respiro visual (breathing room) de 10-20px.
+        // Valores anteriores (85/110) eram muito grandes, causando "sobra".
         const isMobile = window.innerWidth < 768;
-        const headerOffset = isMobile ? 85 : 110;
+        const offset = isMobile ? 75 : 85; 
         
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.scrollY - headerOffset;
-        
-        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-      }
-    }, 50);
+        // Cálculo absoluto da posição do elemento em relação ao topo do documento
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }, 10);
+    }
   };
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
