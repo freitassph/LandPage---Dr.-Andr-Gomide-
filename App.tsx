@@ -37,21 +37,21 @@ const App: React.FC = () => {
           <div id="hero"><Hero /></div>
           
           {/* 
-             Adjusted scroll-mt to match new Header.tsx offsets.
-             scroll-mt-20 (80px) for mobile / scroll-mt-24 (96px) for desktop.
-             This removes the "excessive gap" while keeping content safe from the header.
+             Using scroll-mt-24 (96px) for mobile (Header ~75px) 
+             and scroll-mt-32 (128px) for desktop (Header ~97px).
+             This guarantees the section starts comfortably below the fixed header.
           */}
-          <div id="authority" className="scroll-mt-20 md:scroll-mt-24"><Authority /></div>
+          <div id="authority" className="scroll-mt-24 md:scroll-mt-32"><Authority /></div>
           
           {/* The Split Paths: Specialized Content */}
-          <div id="mentoria" className="scroll-mt-20 md:scroll-mt-24"><Mentorship /></div>
-          <div id="clinica" className="scroll-mt-20 md:scroll-mt-24"><Clinic /></div>
+          <div id="mentoria" className="scroll-mt-24 md:scroll-mt-32"><Mentorship /></div>
+          <div id="clinica" className="scroll-mt-24 md:scroll-mt-32"><Clinic /></div>
           
           {/* Social Proof & Validation */}
-          <div id="testimonials" className="scroll-mt-20 md:scroll-mt-24"><Testimonials /></div>
+          <div id="testimonials" className="scroll-mt-24 md:scroll-mt-32"><Testimonials /></div>
           
           {/* Information */}
-          <div id="faq" className="scroll-mt-20 md:scroll-mt-24"><FAQ /></div>
+          <div id="faq" className="scroll-mt-24 md:scroll-mt-32"><FAQ /></div>
         </main>
         <Footer />
 

@@ -26,38 +26,10 @@ export const Header: React.FC = () => {
     { name: 'Depoimentos', href: '#testimonials' },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    
-    // 1. Fecha o menu imediatamente
+  const handleNavClick = () => {
+    // Apenas fecha o menu mobile.
+    // O scroll é manipulado nativamente pelo CSS (scroll-smooth) e pelos IDs das seções com scroll-margin (scroll-mt).
     setIsMobileMenuOpen(false);
-
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-    
-    if (element) {
-      // 2. Timeout para garantir estabilidade do layout
-      setTimeout(() => {
-        const isMobile = window.innerWidth < 768;
-        
-        // --- AJUSTE DE PRECISÃO (GOLDILOCKS ZONE) ---
-        // O problema anterior ("sobra") ocorria porque o offset (150px) somava com o padding da seção.
-        // Agora, definimos o offset apenas para a altura real do Header + pequeno buffer.
-        // Mobile Header: ~60-65px -> Offset 70px
-        // Desktop Header: ~80px -> Offset 90px
-        // Isso alinha o TOPO da seção (background) com o fundo do Header.
-        // O texto ficará perfeitamente posicionado graças ao padding interno da própria seção (py-24/32).
-        const offset = isMobile ? 70 : 90; 
-        
-        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-        const offsetPosition = elementPosition - offset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }, 100);
-    }
   };
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -103,7 +75,7 @@ export const Header: React.FC = () => {
               <a 
                 key={link.name} 
                 href={link.href} 
-                onClick={(e) => handleNavClick(e, link.href)}
+                onClick={handleNavClick}
                 className="text-xs font-sans uppercase tracking-widest text-slate-400 hover:text-white transition-colors cursor-pointer relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-px after:bg-gold-400 after:transition-all after:duration-300 hover:after:w-full whitespace-nowrap"
               >
                 {link.name}
@@ -152,7 +124,7 @@ export const Header: React.FC = () => {
             <a 
               key={link.name} 
               href={link.href} 
-              onClick={(e) => handleNavClick(e, link.href)}
+              onClick={handleNavClick}
               className={`text-3xl font-serif text-slate-300 hover:text-gold-400 transition-all duration-500 transform 
                 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} active:scale-95`}
               style={{ transitionDelay: `${idx * 100}ms` }}
