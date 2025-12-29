@@ -37,22 +37,22 @@ const App: React.FC = () => {
           <div id="hero"><Hero /></div>
           
           {/* 
-             Added scroll-mt (Scroll Margin Top) classes. 
-             This CSS property acts as a safety net for browser-native scrolling, 
-             ensuring that even if JS calculation misses slightly, the browser 
-             knows to leave space above these elements.
+             Updated scroll-mt (Scroll Margin Top) classes to NUCLEAR values.
+             scroll-mt-32 = 128px (Mobile)
+             scroll-mt-40 = 160px (Desktop)
+             These match the updated JS offsets in Header.tsx, providing a huge safety buffer.
           */}
-          <div id="authority" className="scroll-mt-24 md:scroll-mt-28"><Authority /></div>
+          <div id="authority" className="scroll-mt-32 md:scroll-mt-40"><Authority /></div>
           
           {/* The Split Paths: Specialized Content */}
-          <div id="mentoria" className="scroll-mt-24 md:scroll-mt-28"><Mentorship /></div>
-          <div id="clinica" className="scroll-mt-24 md:scroll-mt-28"><Clinic /></div>
+          <div id="mentoria" className="scroll-mt-32 md:scroll-mt-40"><Mentorship /></div>
+          <div id="clinica" className="scroll-mt-32 md:scroll-mt-40"><Clinic /></div>
           
           {/* Social Proof & Validation */}
-          <div id="testimonials" className="scroll-mt-24 md:scroll-mt-28"><Testimonials /></div>
+          <div id="testimonials" className="scroll-mt-32 md:scroll-mt-40"><Testimonials /></div>
           
           {/* Information */}
-          <div id="faq" className="scroll-mt-24 md:scroll-mt-28"><FAQ /></div>
+          <div id="faq" className="scroll-mt-32 md:scroll-mt-40"><FAQ /></div>
         </main>
         <Footer />
 

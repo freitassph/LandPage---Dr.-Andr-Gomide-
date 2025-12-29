@@ -36,17 +36,17 @@ export const Header: React.FC = () => {
     const element = document.getElementById(targetId);
     
     if (element) {
-      // 2. Timeout para garantir que o layout estabilize (especialmente mobile address bar)
+      // 2. Timeout para garantir estabilidade do layout
       setTimeout(() => {
         const isMobile = window.innerWidth < 768;
         
-        // Offset de Segurança (Vercel/Production Fix):
-        // Header Compacto: ~65px.
-        // Mobile: 85px (65px Header + 20px Respiro).
-        // Desktop: 105px (80px Header + 25px Respiro).
-        // Aumentamos os valores para garantir que NUNCA corte o título, 
-        // compensando variações de renderização entre navegadores.
-        const offset = isMobile ? 85 : 105; 
+        // --- SOLUÇÃO DE SEGURANÇA MÁXIMA ---
+        // Header Altura Real: ~70px (Mobile) / ~90px (Desktop)
+        // Offset Anterior: 85px/105px (Ainda cortava em alguns dispositivos)
+        // Novo Offset: 120px (Mobile) / 150px (Desktop)
+        // Isso garante ~50px de espaço VISÍVEL entre o header e o título.
+        // É melhor sobrar espaço do que cortar o conteúdo.
+        const offset = isMobile ? 120 : 150; 
         
         const elementPosition = element.getBoundingClientRect().top + window.scrollY;
         const offsetPosition = elementPosition - offset;
