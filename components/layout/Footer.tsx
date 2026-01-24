@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 export const Footer: React.FC = () => {
@@ -27,12 +28,14 @@ export const Footer: React.FC = () => {
                 href="https://www.instagram.com/drandregomide?igsh=emRjbjNzMWRmejkz" 
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram Dr. André Gomide"
                 className="text-slate-500 hover:text-gold-300 transition-colors text-xl"
               >
                 <i className="fa-brands fa-instagram"></i>
               </a>
               <a 
                 href="mailto:contato@drandregomide.com.br"
+                aria-label="E-mail de Contato"
                 className="text-slate-500 hover:text-gold-300 transition-colors text-xl"
               >
                 <i className="fa-regular fa-envelope"></i>
@@ -51,7 +54,7 @@ export const Footer: React.FC = () => {
                href="https://www.instagram.com/freitas.lab/"
                target="_blank"
                rel="noopener noreferrer"
-               className="text-[9px] uppercase tracking-[0.2em] text-slate-500 hover:text-gold-400 transition-colors duration-300"
+               className="text-[9px] lowercase tracking-[0.2em] text-slate-500 hover:text-gold-400 transition-colors duration-300"
              >
                 @freitas.lab
              </a>
@@ -59,8 +62,7 @@ export const Footer: React.FC = () => {
         </div>
       </footer>
 
-      {/* Luxury Mobile Sticky Bar - Elevated Z-Index (50) to be above content but below Modals if any. 
-          Updated: Darker bg and higher blur for maximum readability per request. */}
+      {/* Luxury Mobile Sticky Bar - Elevated Z-Index (50) to be above content but below Modals if any. */}
       <div className="fixed bottom-0 left-0 w-full md:hidden z-50 flex h-16 bg-navy-950/90 backdrop-blur-2xl border-t border-white/10 shadow-[0_-5px_20px_rgba(0,0,0,0.5)] safe-area-pb">
         <a 
           href={`${studentWhatsapp}?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20cursos%20e%20mentoria.`}
