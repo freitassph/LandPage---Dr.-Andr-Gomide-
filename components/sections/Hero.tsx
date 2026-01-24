@@ -80,7 +80,7 @@ export const Hero: React.FC = () => {
     };
   }, []);
 
-  const studentWhatsapp = "https://wa.me/5562985551350?text=Ol%C3%A1%2C%20sou%20dentista%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20Mentoria%20Endo%20360.";
+  const studentWhatsapp = "https://wa.me/5562984527070?text=Ol%C3%A1%2C%20sou%20dentista%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20Mentoria%20Endo%20360.";
   const clinicWhatsapp = "https://wa.me/5562984459505?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20Andr%C3%A9%20Gomide.";
 
   return (

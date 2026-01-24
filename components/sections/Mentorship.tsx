@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FadeIn } from '../ui/FadeIn';
 
 export const Mentorship: React.FC = () => {
@@ -54,7 +54,7 @@ export const Mentorship: React.FC = () => {
               </div>
 
               <a 
-                href="https://wa.me/5562985551350?text=Tenho%20interesse%20na%20Mentoria%20Endo%20360" 
+                href="https://wa.me/5562984527070?text=Tenho%20interesse%20na%20Mentoria%20Endo%20360" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative overflow-hidden group inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-400 hover:to-gold-300 text-navy-950 font-bold uppercase tracking-widest text-sm transition-all duration-300 rounded-sm shadow-lg shadow-gold-900/20 hover:shadow-gold-500/20 transform hover:-translate-y-1 w-full sm:w-auto justify-center"

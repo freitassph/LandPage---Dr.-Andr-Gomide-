@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Footer: React.FC = () => {
   const clinicWhatsapp = "https://wa.me/5562984459505";
-  const studentWhatsapp = "https://wa.me/5562985551350";
+  const studentWhatsapp = "https://wa.me/5562984527070";
 
   return (
     <>
