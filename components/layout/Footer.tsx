@@ -40,20 +40,20 @@ export const Footer: React.FC = () => {
             </div>
             
             <div className="text-center md:text-right text-xs font-light text-slate-600">
-              <p className="mb-1">CRO-GO 8397</p>
-              <p>&copy; 2026 Dr. André Gomide.</p>
+              <p className="mb-1">Dr. André Gomide</p>
+              <p>CRO-GO 8397</p>
             </div>
           </div>
           
           <div className="text-center flex flex-col items-center gap-2">
-             <p className="text-[10px] uppercase tracking-[0.3em] text-slate-700 opacity-50">Designed for Excellence</p>
+             <p className="text-[10px] uppercase tracking-[0.3em] text-slate-600 opacity-60">Designed for Excellence</p>
              <a 
-               href="https://www.instagram.com/freitass_ph/"
+               href="https://www.instagram.com/freitas.lab/"
                target="_blank"
                rel="noopener noreferrer"
-               className="text-[8px] uppercase tracking-[0.2em] text-slate-800 hover:text-gold-500/30 transition-colors duration-500"
+               className="text-[9px] uppercase tracking-[0.2em] text-slate-500 hover:text-gold-400 transition-colors duration-300"
              >
-                By freitass_ph
+                @freitas.lab
              </a>
           </div>
         </div>
