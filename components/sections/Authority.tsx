@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { FadeIn } from '../ui/FadeIn';
 
@@ -68,7 +69,7 @@ export const Authority: React.FC = () => {
                 <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden border border-white/10 shadow-2xl shadow-black/50 group">
                   {/* Foto final do Dr. André */}
                   <img 
-                    src="https://i.ibb.co/0ppxy2bH/Gemini-Generated-Image-cpb28icpb28icpb2.jpg" 
+                    src="https://i.ibb.co/p67xT6wQ/Gemini-Generated-Image-cpb28icpb28icpb2.avif" 
                     alt="Dr. André Gomide - Especialista em Endodontia" 
                     loading="lazy"
                     className="w-full h-full object-cover transition-all duration-[1.5s] ease-out-expo group-hover:scale-105 group-hover:brightness-100 brightness-90 contrast-110"
