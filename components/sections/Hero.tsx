@@ -127,7 +127,8 @@ export const Hero: React.FC = () => {
             <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.1] md:leading-[1.05] text-slate-100 mb-4 md:mb-6 tracking-tight drop-shadow-2xl">
               Precisão <span className="font-light italic text-slate-300">Clínica</span>
               <br />
-              <span className="text-gold-gradient font-medium relative inline-block">
+              {/* Added pb-3 to prevent gradient text clipping on descenders like 'g' */}
+              <span className="text-gold-gradient font-medium relative inline-block pb-2 md:pb-4">
                 & Rigor Acadêmico
                 <span className="absolute inset-0 bg-gold-400/20 blur-2xl -z-10 rounded-full opacity-30"></span>
               </span>
