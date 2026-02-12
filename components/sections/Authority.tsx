@@ -41,11 +41,11 @@ export const Authority: React.FC = () => {
               <div className="grid grid-cols-2 gap-x-4 gap-y-6 md:gap-x-8 md:gap-y-12 mt-8 md:mt-16 border-t border-white/10 pt-8 md:pt-12">
                 <div className="group">
                   <h4 className="font-serif text-lg md:text-3xl text-white mb-1 md:mb-2 group-hover:text-gold-300 transition-colors">PhD & Mestre</h4>
-                  <p className="text-[8px] md:text-[10px] uppercase tracking-widest text-slate-400 font-medium">Ciências da Saúde - UFG</p>
+                  <p className="text-[8px] md:text-[10px] uppercase tracking-widest text-slate-400 font-medium">Odontologia - UFG</p>
                 </div>
                 <div className="group">
-                  <h4 className="font-serif text-lg md:text-3xl text-white mb-1 md:mb-2 group-hover:text-gold-300 transition-colors">Coordenador</h4>
-                  <p className="text-[8px] md:text-[10px] uppercase tracking-widest text-slate-400 font-medium">Especialização ABO-GO</p>
+                  <h4 className="font-serif text-lg md:text-3xl text-white mb-1 md:mb-2 group-hover:text-gold-300 transition-colors">Vice-Coordenador</h4>
+                  <p className="text-[8px] md:text-[10px] uppercase tracking-widest text-slate-400 font-medium">Pós-Graduação em Biociências e Saúde</p>
                 </div>
                 <div className="group">
                   <h4 className="font-serif text-lg md:text-3xl text-white mb-1 md:mb-2 group-hover:text-gold-300 transition-colors">Pesquisador</h4>
@@ -53,7 +53,7 @@ export const Authority: React.FC = () => {
                 </div>
                 <div className="group">
                    <h4 className="font-serif text-lg md:text-3xl text-white mb-1 md:mb-2 group-hover:text-gold-300 transition-colors">Clínico</h4>
-                   <p className="text-[8px] md:text-[10px] uppercase tracking-widest text-slate-400 font-medium">Microscopia Avançada</p>
+                   <p className="text-[8px] md:text-[10px] uppercase tracking-widest text-slate-400 font-medium">Magnificação das Imagens</p>
                 </div>
               </div>
             </FadeIn>

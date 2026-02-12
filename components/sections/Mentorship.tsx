@@ -3,12 +3,13 @@ import { FadeIn } from '../ui/FadeIn';
 
 export const Mentorship: React.FC = () => {
   const syllabus = [
-    { name: "Abertura Coronária Ninja", icon: "fa-mask" },
+    { name: "Abertura Coronária Segura", icon: "fa-shield-halved" },
     { name: "Canais Calcificados", icon: "fa-magnifying-glass" },
     { name: "Instrumentação Mecanizada", icon: "fa-robot" },
     { name: "Irrigação Ultrassônica", icon: "fa-water" },
     { name: "Obturação Tridimensional", icon: "fa-cube" },
-    { name: "Resolução de Acidentes", icon: "fa-kit-medical" }
+    { name: "Resolução de Acidentes", icon: "fa-kit-medical" },
+    { name: "Protocolos de Urgências", icon: "fa-bolt" }
   ];
 
   return (

@@ -1,18 +1,19 @@
+
 import React, { useState } from 'react';
 import { FadeIn } from '../ui/FadeIn';
 
 const faqs = [
   {
     question: "O consultório aceita planos de saúde?",
-    answer: "Nossa clínica opera exclusivamente no modelo particular para garantir a máxima qualidade, tempo dedicado e uso dos melhores materiais disponíveis (Limas mecanizadas de uso único e Microscopia). Emitimos recibos para reembolso."
+    answer: "Nossa clínica opera exclusivamente no modelo particular para garantir a máxima qualidade, tempo dedicado e uso dos melhores materiais disponíveis. Emitimos notas fiscais para reembolso."
   },
   {
     question: "Como funciona a Mentoria Endo 360?",
-    answer: "É um programa de excelência híbrido (online + presencial) focado em resoluções complexas e urgências endodônticas. O objetivo é conferir segurança técnica e científica ao cirurgião-dentista."
+    answer: "É um programa de excelência híbrido ONLINE (aulas gravadas e ao vivo) focado em resoluções complexas e urgências endodônticas. O objetivo é conferir segurança técnica e científica ao cirurgião-dentista."
   },
   {
     question: "Onde a clínica está localizada?",
-    answer: "O atendimento é realizado na Clínica GM (Dr. André Gomide), situada em Porangatu (GO). Dispomos de infraestrutura completa com Microscopia Operatória para tratamentos de alta precisão."
+    answer: "O atendimento é realizado no Espaço Clínico GM (Dr. André Gomide e equipe capacitada por ele). Rua 01, nº 68, Vila Soares, Porangatu-GO, CEP: 76.550-164. WhatsApp: (62) 98445-9505. Fixo: (62) 3362-1350. Dispomos de infraestrutura completa com magnificação de imagens para tratamentos de alta precisão."
   },
   {
     question: "Quais tecnologias são utilizadas no tratamento?",

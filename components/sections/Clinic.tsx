@@ -4,9 +4,9 @@ import { FadeIn } from '../ui/FadeIn';
 
 export const Clinic: React.FC = () => {
   const technologies = [
-    { icon: "fa-microscope", title: "Microscopia Zeiss", desc: "Ampliação de até 20x para tratar canais invisíveis a olho nu." },
+    { icon: "fa-microscope", title: "Magnificação das Imagens", desc: "Ampliação de até 20x para tratar canais invisíveis a olho nu." },
     { icon: "fa-print", title: "Tomografia 3D", desc: "Planejamento digital para máxima segurança e precisão." },
-    { icon: "fa-wand-magic-sparkles", title: "Ultrassom Piezo", desc: "Limpeza profunda com preservação da estrutura dental." }
+    { icon: "fa-wand-magic-sparkles", title: "Ultrassom", desc: "Limpeza profunda com preservação da estrutura dental." }
   ];
 
   return (
